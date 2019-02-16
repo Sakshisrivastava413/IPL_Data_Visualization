@@ -118,4 +118,16 @@ export default {
 </script>
 
 <style scoped>
+  .chart {
+    width: 100%;
+    height: 500px;
+    margin-top: 30px;
+  }
+  /* media query to force hide breadcrumbs when the screen is too small */
+  @media screen and (max-width: 500px) {
+    .d2b-breadcrumbs-frame {
+      display: none;
+      width: 0px !important;
+      }
+  }
 </style>
