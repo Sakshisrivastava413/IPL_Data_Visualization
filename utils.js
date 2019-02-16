@@ -82,7 +82,7 @@ function getTeamBowlingBattingData(ballByBallData) {
           stumped: 0,
           runOuts: 0,
         },
-      },
+      }
     }
 
     if (!details[Team_Bowling_Id]) {
@@ -169,11 +169,10 @@ function getTeamBowlingBattingData(ballByBallData) {
 
     details[Team_Batting_Id]['batting'] = currentBattingTeamData;
     details[Team_Bowling_Id]['bowling'] = currentBowlingTeamData;
-  
   });
   return details;
 }
 
 module.exports = {
-  convertToJSON, getTeamBowlingBattingData
+  convertToJSON, getTeamBowlingBattingData,
 };
