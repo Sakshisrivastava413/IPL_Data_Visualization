@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
+  .main-container {
+    padding: 0px
+  }
 </style>
 
