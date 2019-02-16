@@ -10,7 +10,9 @@ const ballByBallJSON = readFile('./csv/Ball_by_Ball.csv');
 const teamJSON = readFile('./csv/Team.csv');
 const playerJSON = readFile('./csv/Player.csv');
 
-// console.log(matchJSON);
-// console.log(ballByBallJSON);
-// console.log(teamJSON);
-// console.log(playerJSON);
+fs.writeFile('json/matchData.json', JSON.stringify(matchJSON, null, 4), ()=> {});
+fs.writeFile('json/ballByBallData.json', JSON.stringify(ballByBallJSON, null, 4), ()=> {});
+fs.writeFile('json/teamData.json', JSON.stringify(teamJSON, null, 4), ()=> {});
+fs.writeFile('json/playerData.json', JSON.stringify(playerJSON, null, 4), ()=> {});
+
+
