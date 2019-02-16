@@ -10,6 +10,7 @@
   "dependencies": {
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.22",
+    "vue-d2b": "^1.0.15",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
