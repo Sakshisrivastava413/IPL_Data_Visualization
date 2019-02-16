@@ -2,7 +2,7 @@
 <div>
   <div class="chart">
     <ChartTitle :title="titleText" />
-    <chart-sunburst ref="chart" :data="chartData"></chart-sunburst>
+    <chart-sunburst ref="chart" :data="chartData" :config="chartConfig"></chart-sunburst>
   </div>
 </div>
 </template>
@@ -25,6 +25,17 @@ export default {
         label: "Team Details",
         children: []
       },
+      chartConfig: function(chart) {
+        chart.tooltip().html(function(data) {
+          let size = 0;
+          if (!data.children || !data.children.length)
+            return `${data.label} ${data.value}`;
+          if (data.label == "Batsmans hits" || data.label == "Extra Runs") {
+            size = data.children.reduce((acc, d) => acc + d.size, 0);
+          }
+          return `${data.label} ${size != 0 ? size : ""}`;
+        });
+      }
     }
   },
   mounted() {
