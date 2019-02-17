@@ -20,6 +20,16 @@ export default {
         }
       }
     }
+  },
+  mounted() {
+    const topBatsmenData = [];
+
+    Object.values(batsman_json).forEach(team => {
+        topBatsmenData.push({
+          name: team.details.Player_Name,
+          totalRuns: team.totalRuns
+        });
+    });
   }
 }
 </script>
