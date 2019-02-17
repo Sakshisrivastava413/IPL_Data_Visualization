@@ -374,6 +374,15 @@ function venueDetails(matchJSON, BallDetails, teamJSON) {
   return venuesByCity_object;
 }
 
+function topVenueDetails(venue_json) {
+  const allVenueData = [];
+  Object.values(venue_json).forEach(venue => {
+    Object.values(venue).map(v => allVenueData.push(v))
+  });
+  allVenueData.sort((v1, v2) => v2.matchesPlayed - v1.matchesPlayed);
+  return allVenueData;
+}
+
 function getMatchDetails(ballByBallData) {
   let details = {};
   ballByBallData.forEach(ball => {
@@ -524,5 +533,5 @@ function getMatchDetails(ballByBallData) {
 
 
 module.exports = {
-  convertToJSON, getMatchDetails, venueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getMatchDetails, venueDetails, topVenueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };

@@ -2,7 +2,7 @@ const fs = require('fs');
 const utils = require('./utils');
 
 // extracting required functions
-const { convertToJSON, getBatsmanData, venueDetails, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getMatchDetails, getTeamWinningAndLosingCount, getTeamName} = utils;
+const { convertToJSON, getBatsmanData, topVenueDetails, venueDetails, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getMatchDetails, getTeamWinningAndLosingCount, getTeamName} = utils;
 
 const readFile = fileName => convertToJSON(fs.readFileSync(fileName).toString());
 
@@ -37,3 +37,6 @@ fs.writeFile('json/top10Batsmen.json', JSON.stringify(batsmanData.slice(0, 10), 
 const BallDetails = getMatchDetails(ballByBallJSON);
 const venueData = venueDetails(matchJSON, BallDetails, teamJSON);
 fs.writeFile('json/venueDetails.json', JSON.stringify(venueData, null, 4), ()=> {});
+
+const topVenueData = topVenueDetails(venueData);
+fs.writeFile('json/top10Venue.json', JSON.stringify(topVenueData.slice(0, 10), null, 4), ()=> {});
