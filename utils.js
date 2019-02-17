@@ -201,6 +201,51 @@ function getDataBySeasons(matchData) {
   return seasons;
 }
 
+function getTeamWinningAndLosingCount(matchDetails, teamDetails) {
+
+  const teamStatDetails = new Map();
+  Object.entries(matchDetails).forEach(([key, match_detail]) => {
+    match_detail.matches.forEach(match => {
+      let Match_Loser_Id = match.Match_Winner_Id != match.Team_Name_Id
+        ? match.Team_Name_Id
+        : match.Opponent_Team_Id;
+
+      const team1 = teamStatDetails.get(match.Match_Winner_Id) || {
+        wins: 0,
+        loses: 0,
+        details: teamDetails[match.Match_Winner_Id]
+      };
+
+      const team2 = teamStatDetails.get(Match_Loser_Id) || {
+        wins: 0,
+        loses: 0,
+        details: teamDetails[Match_Loser_Id]
+      };
+
+      team1.wins++;
+      team2.loses++;
+
+      teamStatDetails.set(match.Match_Winner_Id, team1);
+      teamStatDetails.set(Match_Loser_Id, team2);
+
+    });
+  });
+
+  const finalResults = {};
+  teamStatDetails.forEach((val, key) => key != "" && (finalResults[key] = val));
+
+  return finalResults;
+}
+
+function getTeamName(teamData) {
+  const teams = {};
+  teamData.forEach(row => {
+    teams[row.Team_Id] = row;
+  });
+  delete teams['undefined'];
+  return teams; 
+}
+
 module.exports = {
-  convertToJSON, getTeamBowlingBattingData, getDataBySeasons,
+  convertToJSON, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };

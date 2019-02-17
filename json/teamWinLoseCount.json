@@ -1,0 +1,119 @@
+{
+    "1": {
+        "wins": 68,
+        "loses": 64,
+        "details": {
+            "Team_Id": "1",
+            "Team_Name": "Kolkata Knight Riders",
+            "Team_Short_Code": "KKR"
+        }
+    },
+    "2": {
+        "wins": 70,
+        "loses": 69,
+        "details": {
+            "Team_Id": "2",
+            "Team_Name": "Royal Challengers Bangalore",
+            "Team_Short_Code": "RCB"
+        }
+    },
+    "3": {
+        "wins": 79,
+        "loses": 52,
+        "details": {
+            "Team_Id": "3",
+            "Team_Name": "Chennai Super Kings",
+            "Team_Short_Code": "CSK"
+        }
+    },
+    "4": {
+        "wins": 63,
+        "loses": 71,
+        "details": {
+            "Team_Id": "4",
+            "Team_Name": "Kings XI Punjab",
+            "Team_Short_Code": "KXIP"
+        }
+    },
+    "5": {
+        "wins": 63,
+        "loses": 54,
+        "details": {
+            "Team_Id": "5",
+            "Team_Name": "Rajasthan Royals",
+            "Team_Short_Code": "RR"
+        }
+    },
+    "6": {
+        "wins": 56,
+        "loses": 76,
+        "details": {
+            "Team_Id": "6",
+            "Team_Name": "Delhi Daredevils",
+            "Team_Short_Code": "DD"
+        }
+    },
+    "7": {
+        "wins": 80,
+        "loses": 60,
+        "details": {
+            "Team_Id": "7",
+            "Team_Name": "Mumbai Indians",
+            "Team_Short_Code": "MI"
+        }
+    },
+    "8": {
+        "wins": 29,
+        "loses": 46,
+        "details": {
+            "Team_Id": "8",
+            "Team_Name": "Deccan Chargers",
+            "Team_Short_Code": "DC"
+        }
+    },
+    "9": {
+        "wins": 6,
+        "loses": 8,
+        "details": {
+            "Team_Id": "9",
+            "Team_Name": "Kochi Tuskers Kerala",
+            "Team_Short_Code": "KTK"
+        }
+    },
+    "10": {
+        "wins": 12,
+        "loses": 33,
+        "details": {
+            "Team_Id": "10",
+            "Team_Name": "Pune Warriors",
+            "Team_Short_Code": "PW"
+        }
+    },
+    "11": {
+        "wins": 34,
+        "loses": 28,
+        "details": {
+            "Team_Id": "11",
+            "Team_Name": "Sunrisers Hyderabad",
+            "Team_Short_Code": "SRH"
+        }
+    },
+    "12": {
+        "wins": 5,
+        "loses": 9,
+        "details": {
+            "Team_Id": "12",
+            "Team_Name": "Rising Pune Supergiants",
+            "Team_Short_Code": "RPS"
+        }
+    },
+    "13": {
+        "wins": 9,
+        "loses": 7,
+        "details": {
+            "Team_Id": "13",
+            "Team_Name": "Gujarat Lions",
+            "Team_Short_Code": "GL"
+        }
+    }
+}
