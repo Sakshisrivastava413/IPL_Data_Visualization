@@ -173,6 +173,34 @@ function getTeamBowlingBattingData(ballByBallData) {
   return details;
 }
 
+function getDataBySeasons(matchData) {
+  const seasons = {};
+  matchData.forEach(row => {
+    const currentMatchDate = new Date(row.Match_Date);
+    let currentSeason = seasons[row.Season_Id];
+    if (currentSeason) {
+      currentSeason.matches.push(row);
+      if (currentMatchDate < currentSeason.startDate) {
+        currentSeason.endDate = currentSeason.startDate;
+        currentSeason.startDate = currentMatchDate;
+      } else if (currentMatchDate > currentSeason.startDate) {
+        if (!currentSeason.endDate || currentMatchDate > currentSeason.endDate) {
+          currentSeason.endDate = currentMatchDate;
+        }
+      }
+      currentSeason.startDate
+    } else {
+      seasons[row.Season_Id] = {
+        matches: [row],
+        startDate: new Date(row.Match_Date),
+        endDate: null
+      };
+    }
+  });
+  delete seasons['undefined'];
+  return seasons;
+}
+
 module.exports = {
-  convertToJSON, getTeamBowlingBattingData,
+  convertToJSON, getTeamBowlingBattingData, getDataBySeasons,
 };
