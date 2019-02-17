@@ -2,13 +2,13 @@ const fs = require('fs');
 const utils = require('./utils');
 
 // extracting required functions
-const { convertToJSON, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName} = utils;
+const { convertToJSON, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName} = utils;
 
 const readFile = fileName => convertToJSON(fs.readFileSync(fileName).toString());
 
 // reading csv files
-const matchJSON = readFile('./csv/Match.csv');
-const ballByBallJSON = readFile('./csv/Ball_by_Ball.csv');
+let matchJSON = readFile('./csv/Match.csv');
+let ballByBallJSON = readFile('./csv/Ball_by_Ball.csv');
 const teamJSON = readFile('./csv/Team.csv');
 const playerJSON = readFile('./csv/Player.csv');
 
@@ -28,3 +28,8 @@ fs.writeFile('json/matchDataBySeason.json', JSON.stringify(matchDataBySeason, nu
 
 const teamWinLoseCount = getTeamWinningAndLosingCount(matchDataBySeason, teamDetails);
 fs.writeFile('json/teamWinLoseCount.json', JSON.stringify(teamWinLoseCount, null, 4), ()=> {});
+
+
+const playerDetails = getPlayerNames(playerJSON);
+const batsmanData = getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails);
+fs.writeFile('json/top10Batsmen.json', JSON.stringify(batsmanData.slice(0, 10), null, 2), ()=> {});
