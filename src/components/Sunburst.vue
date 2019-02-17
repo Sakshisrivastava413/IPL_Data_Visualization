@@ -10,7 +10,7 @@
 <script>
 import { ChartSunburst } from "vue-d2b";
 import ChartTitle from "./ChartTitle.vue";
-import teams_details_json from "../../json/sunburstData.json";
+import teams_details_json from "../../json/teamOverallData.json";
 
 export default {
   name: "Sunburst",
