@@ -258,8 +258,6 @@ function getPlayerNames(playerData) {
 }
 
 function getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails) {
-  ballByBallJSON = ballByBallJSON.splice(0, ballByBallJSON.length - 1);
-  matchJSON = matchJSON.splice(0, matchJSON.length - 1);
 
   const batsmen = new Map();
   for (let i = 0; i < ballByBallJSON.length; i++) {
@@ -305,6 +303,7 @@ function getMatchLoserId(match) {
   return match.Team_Name_Id == match.Match_Winner_Id ? match.Opponent_Team_Id : match.Team_Name_Id;
 }
 
+
 module.exports = {
-  convertToJSON, getMatchLoserId, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getMatchDetails, venueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };

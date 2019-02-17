@@ -2,7 +2,7 @@ const fs = require('fs');
 const utils = require('./utils');
 
 // extracting required functions
-const { convertToJSON, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName} = utils;
+const { convertToJSON, getBatsmanData, venueDetails, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getMatchDetails, getTeamWinningAndLosingCount, getTeamName} = utils;
 
 const readFile = fileName => convertToJSON(fs.readFileSync(fileName).toString());
 
@@ -11,7 +11,6 @@ let matchJSON = readFile('./csv/Match.csv');
 let ballByBallJSON = readFile('./csv/Ball_by_Ball.csv');
 const teamJSON = readFile('./csv/Team.csv');
 const playerJSON = readFile('./csv/Player.csv');
-
 // writing them into .json file
 fs.writeFile('json/matchData.json', JSON.stringify(matchJSON, null, 4), () => {});
 fs.writeFile('json/ballByBallData.json', JSON.stringify(ballByBallJSON, null, 4), () => {});
@@ -29,7 +28,9 @@ fs.writeFile('json/matchDataBySeason.json', JSON.stringify(matchDataBySeason, nu
 const teamWinLoseCount = getTeamWinningAndLosingCount(matchDataBySeason, teamDetails);
 fs.writeFile('json/teamWinLoseCount.json', JSON.stringify(teamWinLoseCount, null, 4), ()=> {});
 
-
+ballByBallJSON = ballByBallJSON.splice(0, ballByBallJSON.length - 1);
+matchJSON = matchJSON.splice(0, matchJSON.length - 1);
 const playerDetails = getPlayerNames(playerJSON);
 const batsmanData = getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails);
 fs.writeFile('json/top10Batsmen.json', JSON.stringify(batsmanData.slice(0, 10), null, 2), ()=> {});
+
