@@ -257,6 +257,50 @@ function getPlayerNames(playerData) {
   return players;
 }
 
+function getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails) {
+  ballByBallJSON = ballByBallJSON.splice(0, ballByBallJSON.length - 1);
+  matchJSON = matchJSON.splice(0, matchJSON.length - 1);
+
+  const batsmen = new Map();
+  for (let i = 0; i < ballByBallJSON.length; i++) {
+    const currentBall = ballByBallJSON[i];
+    const Season_Id = Number(matchJSON.find(match => {
+      return match.Match_Id == currentBall.Match_Id
+    }).Season_Id);
+    const man = batsmen.get(currentBall.Striker_Id) || {
+      details: playerDetails.get(currentBall.Striker_Id),
+      totalRuns: 0,
+      seasons: Array(8).fill(0),
+      matches: {},
+      centuries: new Set(),
+      teamDetails: teamDetails[currentBall.Team_Batting_Id]
+    };
+    const currentRuns = Number(currentBall.Batsman_Scored) + Number(currentBall.Extra_Type ? currentBall.Extra_Runs : 0);
+
+    man.totalRuns += currentRuns;
+
+    man.seasons[Season_Id] = man.seasons[Season_Id] || 0;
+    man.matches[currentBall.Match_Id] = man.matches[currentBall.Match_Id] || 0;
+
+    man.seasons[Season_Id] += currentRuns;
+    man.matches[currentBall.Match_Id] += currentRuns;
+
+    if (man.matches[currentBall.Match_Id] > 100) man.centuries.add(currentBall.Match_Id);
+
+    batsmen.set(currentBall.Striker_Id, man);
+  }
+
+  const batsmen_ar = [];
+  batsmen.forEach((val, key) => {
+    batsmen_ar.push({ ...val, centuries: val.centuries.size });
+  });
+
+  batsmen_ar.sort((b1, b2) => b2.totalRuns - b1.totalRuns);
+
+  return batsmen_ar;
+  // console.log(batsmen_ar.sort((m1, m2) => m2.centuries - m1.centuries).slice(0, 10))
+}
+
 module.exports = {
-  convertToJSON, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };
