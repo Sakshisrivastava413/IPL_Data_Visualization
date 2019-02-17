@@ -2,7 +2,7 @@
   <div>
     <Sunburst titleText="Teams Performance of all Seasons" />
     <div class="main-chart-container">
-      <div class="runChart">
+      <div class="barChart">
         <BarChart
           titleText="Runs Per Team For All Seasons"
           chartType="bar"
@@ -13,11 +13,14 @@
         <Observation />
       </div>
       <div class="barChart">
-          <BarChart
+        <BarChart
           titleText="No of Wins / Loses of Teams For All Seasons"
           chartType="horizontalBar"
           :chartData="TeamWinLoseCountChart.data"
           :chartOptions="TeamWinLoseCountChart.options" />
+      </div>
+      <div class="chartObservation">
+        <Observation />
       </div>
     </div>
   </div>
@@ -72,11 +75,12 @@ export default {
       datasets: [{
         label: 'Total Runs',
          data: teamsRunDetails.map(t => t.runs),
-         backgroundColor: '#22aa99'
+         backgroundColor: '#5499C7'
       }
       ]
     };
     this.TeamRunsChart.options = {
+      responsive: true,
       scales: {
         xAxes: [{
           ticks: {
@@ -114,6 +118,7 @@ export default {
       ]
     };
     this.TeamWinLoseCountChart.options = {
+      responsive: true,
       scales: {
         yAxes: [{
           stacked: true, 
@@ -129,19 +134,17 @@ export default {
 </script>
 
 <style>
-.main-chart-container {
-  /* margin: 10px 80px */
-  display: inline;
-
-}
-.runChart {
-  margin: 10px 80px;
-  width: 60%;
-}
-.chartObservation {
-  float: right;
-}
-.barChart {
-  width: 60%;
-}
+  .main-chart-container {
+    display: inline;
+  }
+  .barChart {
+    margin: 120px 30px;
+    width: 60%;
+  }
+  .chartObservation {
+    float: right;
+  }
+  .barChart {
+    width: 60%;
+  }
 </style>

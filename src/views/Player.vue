@@ -45,6 +45,7 @@ export default {
       ]
     };
     this.TopBatsmanData.options = {
+      responsive: true,
       scales: {
         xAxes: [{
           ticks: {
