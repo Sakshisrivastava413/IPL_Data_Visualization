@@ -247,11 +247,10 @@ function getTeamName(teamData) {
 }
 
 function getPlayerNames(playerData) {
-  const players = {};
+  const players = new Map();
   playerData.forEach(row => {
-    if(players[row.Player_Id]) {
-    } else {
-      players[row.Player_Id] = row;
+    if(!players.has(row.Player_Id)) {
+      players.set(row.Player_Id, row);
     }
   });
   delete players['undefined'];
