@@ -34,3 +34,6 @@ const playerDetails = getPlayerNames(playerJSON);
 const batsmanData = getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails);
 fs.writeFile('json/top10Batsmen.json', JSON.stringify(batsmanData.slice(0, 10), null, 2), ()=> {});
 
+const BallDetails = getMatchDetails(ballByBallJSON);
+const venueData = venueDetails(matchJSON, BallDetails, teamJSON);
+fs.writeFile('json/venueDetails.json', JSON.stringify(venueData, null, 4), ()=> {});

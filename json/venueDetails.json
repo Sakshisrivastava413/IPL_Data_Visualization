@@ -1,0 +1,1125 @@
+{
+    "Bangalore": {
+        "M Chinnaswamy Stadium": {
+            "matchesPlayed": 55,
+            "_matches": {},
+            "totalRuns": 17547,
+            "name": "M Chinnaswamy Stadium",
+            "city": "Bangalore",
+            "highestRecordedScore": 263,
+            "lowestRecordedScore": 82,
+            "highestRecodedMatch": {
+                "runs": 263,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 82,
+                "overs": 16,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 26
+        }
+    },
+    "Chandigarh": {
+        "\"Punjab Cricket Association Stadium, Mohali\"": {
+            "matchesPlayed": 35,
+            "_matches": {},
+            "totalRuns": 10857,
+            "name": "\"Punjab Cricket Association Stadium, Mohali\"",
+            "city": "Chandigarh",
+            "highestRecordedScore": 240,
+            "lowestRecordedScore": 84,
+            "highestRecodedMatch": {
+                "runs": 240,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 84,
+                "overs": 10,
+                "totalOuts": 6,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "matchesWonBattingFirst": 5,
+            "matchesWonBowlingFirst": 11
+        },
+        "\"Punjab Cricket Association IS Bindra Stadium, Mohali\"": {
+            "matchesPlayed": 7,
+            "_matches": {},
+            "totalRuns": 2321,
+            "name": "\"Punjab Cricket Association IS Bindra Stadium, Mohali\"",
+            "city": "Chandigarh",
+            "highestRecordedScore": 189,
+            "lowestRecordedScore": 138,
+            "highestRecodedMatch": {
+                "runs": 189,
+                "overs": 20,
+                "totalOuts": 6,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 138,
+                "overs": 20,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Delhi": {
+        "Feroz Shah Kotla": {
+            "matchesPlayed": 52,
+            "_matches": {},
+            "totalRuns": 15821,
+            "name": "Feroz Shah Kotla",
+            "city": "Delhi",
+            "highestRecordedScore": 231,
+            "lowestRecordedScore": 44,
+            "highestRecodedMatch": {
+                "runs": 231,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "7",
+                    "Team_Name": "Mumbai Indians",
+                    "Team_Short_Code": "MI"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 44,
+                "overs": 5,
+                "totalOuts": 2,
+                "byTeam": {
+                    "Team_Id": "12",
+                    "Team_Name": "Rising Pune Supergiants",
+                    "Team_Short_Code": "RPS"
+                }
+            },
+            "matchesWonBattingFirst": 9,
+            "matchesWonBowlingFirst": 17
+        }
+    },
+    "Mumbai": {
+        "Wankhede Stadium": {
+            "matchesPlayed": 49,
+            "_matches": {},
+            "totalRuns": 15145,
+            "name": "Wankhede Stadium",
+            "city": "Mumbai",
+            "highestRecordedScore": 235,
+            "lowestRecordedScore": 67,
+            "highestRecodedMatch": {
+                "runs": 235,
+                "overs": 20,
+                "totalOuts": 1,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 67,
+                "overs": 16,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 10,
+            "matchesWonBowlingFirst": 14
+        },
+        "Dr DY Patil Sports Academy": {
+            "matchesPlayed": 17,
+            "_matches": {},
+            "totalRuns": 4810,
+            "name": "Dr DY Patil Sports Academy",
+            "city": "Mumbai",
+            "highestRecordedScore": 190,
+            "lowestRecordedScore": 82,
+            "highestRecodedMatch": {
+                "runs": 190,
+                "overs": 20,
+                "totalOuts": 6,
+                "byTeam": {
+                    "Team_Id": "7",
+                    "Team_Name": "Mumbai Indians",
+                    "Team_Short_Code": "MI"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 82,
+                "overs": 19,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "9",
+                    "Team_Name": "Kochi Tuskers Kerala",
+                    "Team_Short_Code": "KTK"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 6
+        },
+        "Brabourne Stadium": {
+            "matchesPlayed": 11,
+            "_matches": {},
+            "totalRuns": 3841,
+            "name": "Brabourne Stadium",
+            "city": "Mumbai",
+            "highestRecordedScore": 212,
+            "lowestRecordedScore": 115,
+            "highestRecodedMatch": {
+                "runs": 212,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 115,
+                "overs": 19,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "9",
+                    "Team_Name": "Kochi Tuskers Kerala",
+                    "Team_Short_Code": "KTK"
+                }
+            },
+            "matchesWonBattingFirst": 4,
+            "matchesWonBowlingFirst": 3
+        }
+    },
+    "Kolkata": {
+        "Eden Gardens": {
+            "matchesPlayed": 54,
+            "_matches": {},
+            "totalRuns": 15793,
+            "name": "Eden Gardens",
+            "city": "Kolkata",
+            "highestRecordedScore": 204,
+            "lowestRecordedScore": 55,
+            "highestRecodedMatch": {
+                "runs": 204,
+                "overs": 19,
+                "totalOuts": 2,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 55,
+                "overs": 8,
+                "totalOuts": 0,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "matchesWonBattingFirst": 12,
+            "matchesWonBowlingFirst": 18
+        }
+    },
+    "Jaipur": {
+        "Sawai Mansingh Stadium": {
+            "matchesPlayed": 33,
+            "_matches": {},
+            "totalRuns": 9627,
+            "name": "Sawai Mansingh Stadium",
+            "city": "Jaipur",
+            "highestRecordedScore": 197,
+            "lowestRecordedScore": 85,
+            "highestRecodedMatch": {
+                "runs": 197,
+                "overs": 20,
+                "totalOuts": 1,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 85,
+                "overs": 19,
+                "totalOuts": 0,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 12
+        }
+    },
+    "Hyderabad": {
+        "\"Rajiv Gandhi International Stadium, Uppal\"": {
+            "matchesPlayed": 40,
+            "_matches": {},
+            "totalRuns": 11973,
+            "name": "\"Rajiv Gandhi International Stadium, Uppal\"",
+            "city": "Hyderabad",
+            "highestRecordedScore": 223,
+            "lowestRecordedScore": 80,
+            "highestRecodedMatch": {
+                "runs": 223,
+                "overs": 20,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 80,
+                "overs": 20,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "7",
+                    "Team_Name": "Mumbai Indians",
+                    "Team_Short_Code": "MI"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 11
+        }
+    },
+    "Chennai": {
+        "\"MA Chidambaram Stadium, Chepauk\"": {
+            "matchesPlayed": 47,
+            "_matches": {},
+            "totalRuns": 14807,
+            "name": "\"MA Chidambaram Stadium, Chepauk\"",
+            "city": "Chennai",
+            "highestRecordedScore": 246,
+            "lowestRecordedScore": 95,
+            "highestRecodedMatch": {
+                "runs": 246,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 95,
+                "overs": 20,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "matchesWonBattingFirst": 21,
+            "matchesWonBowlingFirst": 4
+        }
+    },
+    "Cape Town": {
+        "Newlands": {
+            "matchesPlayed": 6,
+            "_matches": {},
+            "totalRuns": 1464,
+            "name": "Newlands",
+            "city": "Cape Town",
+            "highestRecordedScore": 184,
+            "lowestRecordedScore": 58,
+            "highestRecodedMatch": {
+                "runs": 184,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "9",
+                    "Team_Name": "Kochi Tuskers Kerala",
+                    "Team_Short_Code": "KTK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 58,
+                "overs": 16,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 1
+        }
+    },
+    "Port Elizabeth": {
+        "St George's Park": {
+            "matchesPlayed": 7,
+            "_matches": {},
+            "totalRuns": 2033,
+            "name": "St George's Park",
+            "city": "Port Elizabeth",
+            "highestRecordedScore": 187,
+            "lowestRecordedScore": 87,
+            "highestRecodedMatch": {
+                "runs": 187,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 87,
+                "overs": 16,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 0
+        }
+    },
+    "Durban": {
+        "Kingsmead": {
+            "matchesPlayed": 15,
+            "_matches": {},
+            "totalRuns": 4353,
+            "name": "Kingsmead",
+            "city": "Durban",
+            "highestRecordedScore": 211,
+            "lowestRecordedScore": 79,
+            "highestRecodedMatch": {
+                "runs": 211,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 79,
+                "overs": 10,
+                "totalOuts": 1,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 6,
+            "matchesWonBowlingFirst": 3
+        }
+    },
+    "Centurion": {
+        "SuperSport Park": {
+            "matchesPlayed": 12,
+            "_matches": {},
+            "totalRuns": 3653,
+            "name": "SuperSport Park",
+            "city": "Centurion",
+            "highestRecordedScore": 189,
+            "lowestRecordedScore": 105,
+            "highestRecodedMatch": {
+                "runs": 189,
+                "overs": 20,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 105,
+                "overs": 20,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 5
+        }
+    },
+    "East London": {
+        "Buffalo Park": {
+            "matchesPlayed": 3,
+            "_matches": {},
+            "totalRuns": 799,
+            "name": "Buffalo Park",
+            "city": "East London",
+            "highestRecordedScore": 178,
+            "lowestRecordedScore": 100,
+            "highestRecodedMatch": {
+                "runs": 178,
+                "overs": 20,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 100,
+                "overs": 15,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "9",
+                    "Team_Name": "Kochi Tuskers Kerala",
+                    "Team_Short_Code": "KTK"
+                }
+            },
+            "matchesWonBattingFirst": 2,
+            "matchesWonBowlingFirst": 0
+        }
+    },
+    "Johannesburg": {
+        "New Wanderers Stadium": {
+            "matchesPlayed": 8,
+            "_matches": {},
+            "totalRuns": 2292,
+            "name": "New Wanderers Stadium",
+            "city": "Johannesburg",
+            "highestRecordedScore": 166,
+            "lowestRecordedScore": 123,
+            "highestRecodedMatch": {
+                "runs": 166,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "9",
+                    "Team_Name": "Kochi Tuskers Kerala",
+                    "Team_Short_Code": "KTK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 123,
+                "overs": 20,
+                "totalOuts": 7,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 3
+        }
+    },
+    "Kimberley": {
+        "De Beers Diamond Oval": {
+            "matchesPlayed": 3,
+            "_matches": {},
+            "totalRuns": 897,
+            "name": "De Beers Diamond Oval",
+            "city": "Kimberley",
+            "highestRecordedScore": 169,
+            "lowestRecordedScore": 113,
+            "highestRecodedMatch": {
+                "runs": 169,
+                "overs": 20,
+                "totalOuts": 7,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 113,
+                "overs": 20,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 1
+        }
+    },
+    "Bloemfontein": {
+        "OUTsurance Oval": {
+            "matchesPlayed": 2,
+            "_matches": {},
+            "totalRuns": 525,
+            "name": "OUTsurance Oval",
+            "city": "Bloemfontein",
+            "highestRecordedScore": 150,
+            "lowestRecordedScore": 119,
+            "highestRecodedMatch": {
+                "runs": 150,
+                "overs": 20,
+                "totalOuts": 2,
+                "byTeam": {
+                    "Team_Id": "7",
+                    "Team_Name": "Mumbai Indians",
+                    "Team_Short_Code": "MI"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 119,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 1
+        }
+    },
+    "Ahmedabad": {
+        "\"Sardar Patel Stadium, Motera\"": {
+            "matchesPlayed": 11,
+            "_matches": {},
+            "totalRuns": 3364,
+            "name": "\"Sardar Patel Stadium, Motera\"",
+            "city": "Ahmedabad",
+            "highestRecordedScore": 201,
+            "lowestRecordedScore": 102,
+            "highestRecodedMatch": {
+                "runs": 201,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 102,
+                "overs": 20,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "matchesWonBattingFirst": 3,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Cuttack": {
+        "Barabati Stadium": {
+            "matchesPlayed": 7,
+            "_matches": {},
+            "totalRuns": 2249,
+            "name": "Barabati Stadium",
+            "city": "Cuttack",
+            "highestRecordedScore": 231,
+            "lowestRecordedScore": 118,
+            "highestRecodedMatch": {
+                "runs": 231,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 118,
+                "overs": 20,
+                "totalOuts": 0,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 2,
+            "matchesWonBowlingFirst": 3
+        }
+    },
+    "Nagpur": {
+        "\"Vidarbha Cricket Association Stadium, Jamtha\"": {
+            "matchesPlayed": 3,
+            "_matches": {},
+            "totalRuns": 878,
+            "name": "\"Vidarbha Cricket Association Stadium, Jamtha\"",
+            "city": "Nagpur",
+            "highestRecordedScore": 159,
+            "lowestRecordedScore": 138,
+            "highestRecodedMatch": {
+                "runs": 159,
+                "overs": 20,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 138,
+                "overs": 20,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 0
+        }
+    },
+    "Dharamsala": {
+        "Himachal Pradesh Cricket Association Stadium": {
+            "matchesPlayed": 9,
+            "_matches": {},
+            "totalRuns": 2867,
+            "name": "Himachal Pradesh Cricket Association Stadium",
+            "city": "Dharamsala",
+            "highestRecordedScore": 232,
+            "lowestRecordedScore": 116,
+            "highestRecodedMatch": {
+                "runs": 232,
+                "overs": 20,
+                "totalOuts": 2,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 116,
+                "overs": 19,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 4
+        }
+    },
+    "Kochi": {
+        "Nehru Stadium": {
+            "matchesPlayed": 5,
+            "_matches": {},
+            "totalRuns": 1363,
+            "name": "Nehru Stadium",
+            "city": "Kochi",
+            "highestRecordedScore": 162,
+            "lowestRecordedScore": 74,
+            "highestRecodedMatch": {
+                "runs": 162,
+                "overs": 19,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 74,
+                "overs": 17,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "10",
+                    "Team_Name": "Pune Warriors",
+                    "Team_Short_Code": "PW"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 1
+        }
+    },
+    "Indore": {
+        "Holkar Cricket Stadium": {
+            "matchesPlayed": 2,
+            "_matches": {},
+            "totalRuns": 554,
+            "name": "Holkar Cricket Stadium",
+            "city": "Indore",
+            "highestRecordedScore": 181,
+            "lowestRecordedScore": 97,
+            "highestRecodedMatch": {
+                "runs": 181,
+                "overs": 19,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 97,
+                "overs": 19,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Visakhapatnam": {
+        "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium": {
+            "matchesPlayed": 11,
+            "_matches": {},
+            "totalRuns": 3097,
+            "name": "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium",
+            "city": "Visakhapatnam",
+            "highestRecordedScore": 206,
+            "lowestRecordedScore": 76,
+            "highestRecodedMatch": {
+                "runs": 206,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 76,
+                "overs": 11,
+                "totalOuts": 1,
+                "byTeam": {
+                    "Team_Id": "13",
+                    "Team_Name": "Gujarat Lions",
+                    "Team_Short_Code": "GL"
+                }
+            },
+            "matchesWonBattingFirst": 2,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Pune": {
+        "Subrata Roy Sahara Stadium": {
+            "matchesPlayed": 17,
+            "_matches": {},
+            "totalRuns": 4590,
+            "name": "Subrata Roy Sahara Stadium",
+            "city": "Pune",
+            "highestRecordedScore": 187,
+            "lowestRecordedScore": 92,
+            "highestRecodedMatch": {
+                "runs": 187,
+                "overs": 20,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 92,
+                "overs": 20,
+                "totalOuts": 0,
+                "byTeam": {
+                    "Team_Id": "11",
+                    "Team_Name": "Sunrisers Hyderabad",
+                    "Team_Short_Code": "SRH"
+                }
+            },
+            "matchesWonBattingFirst": 9,
+            "matchesWonBowlingFirst": 0
+        },
+        "Maharashtra Cricket Association Stadium": {
+            "matchesPlayed": 8,
+            "_matches": {},
+            "totalRuns": 2625,
+            "name": "Maharashtra Cricket Association Stadium",
+            "city": "Pune",
+            "highestRecordedScore": 196,
+            "lowestRecordedScore": 109,
+            "highestRecodedMatch": {
+                "runs": 196,
+                "overs": 20,
+                "totalOuts": 7
+            },
+            "lowestRecordedMatch": {
+                "runs": 109,
+                "overs": 19,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "6",
+                    "Team_Name": "Delhi Daredevils",
+                    "Team_Short_Code": "DD"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 4
+        }
+    },
+    "Raipur": {
+        "Shaheed Veer Narayan Singh International Stadium": {
+            "matchesPlayed": 6,
+            "_matches": {},
+            "totalRuns": 1741,
+            "name": "Shaheed Veer Narayan Singh International Stadium",
+            "city": "Raipur",
+            "highestRecordedScore": 164,
+            "lowestRecordedScore": 119,
+            "highestRecodedMatch": {
+                "runs": 164,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "7",
+                    "Team_Name": "Mumbai Indians",
+                    "Team_Short_Code": "MI"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 119,
+                "overs": 20,
+                "totalOuts": 5,
+                "byTeam": {
+                    "Team_Id": "4",
+                    "Team_Name": "Kings XI Punjab",
+                    "Team_Short_Code": "KXIP"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Ranchi": {
+        "JSCA International Stadium Complex": {
+            "matchesPlayed": 7,
+            "_matches": {},
+            "totalRuns": 2056,
+            "name": "JSCA International Stadium Complex",
+            "city": "Ranchi",
+            "highestRecordedScore": 189,
+            "lowestRecordedScore": 114,
+            "highestRecodedMatch": {
+                "runs": 189,
+                "overs": 20,
+                "totalOuts": 4,
+                "byTeam": {
+                    "Team_Id": "12",
+                    "Team_Name": "Rising Pune Supergiants",
+                    "Team_Short_Code": "RPS"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 114,
+                "overs": 17,
+                "totalOuts": 7,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 3
+        }
+    },
+    "Abu Dhabi": {
+        "Sheikh Zayed Stadium": {
+            "matchesPlayed": 6,
+            "_matches": {},
+            "totalRuns": 1607,
+            "name": "Sheikh Zayed Stadium",
+            "city": "Abu Dhabi",
+            "highestRecordedScore": 206,
+            "lowestRecordedScore": 70,
+            "highestRecodedMatch": {
+                "runs": 206,
+                "overs": 19,
+                "totalOuts": 2,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 70,
+                "overs": 15,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "3",
+                    "Team_Name": "Chennai Super Kings",
+                    "Team_Short_Code": "CSK"
+                }
+            },
+            "matchesWonBattingFirst": 2,
+            "matchesWonBowlingFirst": 2
+        },
+        "Sharjah Cricket Stadium": {
+            "matchesPlayed": 6,
+            "_matches": {},
+            "totalRuns": 1824,
+            "name": "Sharjah Cricket Stadium",
+            "city": "Abu Dhabi",
+            "highestRecordedScore": 193,
+            "lowestRecordedScore": 121,
+            "highestRecodedMatch": {
+                "runs": 193,
+                "overs": 19,
+                "totalOuts": 3,
+                "byTeam": {
+                    "Team_Id": "5",
+                    "Team_Name": "Rajasthan Royals",
+                    "Team_Short_Code": "RR"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 121,
+                "overs": 20,
+                "totalOuts": 10,
+                "byTeam": {
+                    "Team_Id": "12",
+                    "Team_Name": "Rising Pune Supergiants",
+                    "Team_Short_Code": "RPS"
+                }
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 2
+        },
+        "Dubai International Cricket Stadium": {
+            "matchesPlayed": 7,
+            "_matches": {},
+            "totalRuns": 2064,
+            "name": "Dubai International Cricket Stadium",
+            "city": "Abu Dhabi",
+            "highestRecordedScore": 184,
+            "lowestRecordedScore": 115,
+            "highestRecodedMatch": {
+                "runs": 184,
+                "overs": 20,
+                "totalOuts": 1,
+                "byTeam": {
+                    "Team_Id": "12",
+                    "Team_Name": "Rising Pune Supergiants",
+                    "Team_Short_Code": "RPS"
+                }
+            },
+            "lowestRecordedMatch": {
+                "runs": 115,
+                "overs": 20,
+                "totalOuts": 9,
+                "byTeam": {
+                    "Team_Id": "8",
+                    "Team_Name": "Deccan Chargers",
+                    "Team_Short_Code": "DC"
+                }
+            },
+            "matchesWonBattingFirst": 1,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Rajkot": {
+        "Saurashtra Cricket Association Stadium": {
+            "matchesPlayed": 5,
+            "_matches": {},
+            "totalRuns": 1545,
+            "name": "Saurashtra Cricket Association Stadium",
+            "city": "Rajkot",
+            "highestRecordedScore": 182,
+            "lowestRecordedScore": 131,
+            "highestRecodedMatch": {
+                "runs": 182,
+                "overs": 20,
+                "totalOuts": 4
+            },
+            "lowestRecordedMatch": {
+                "runs": 131,
+                "overs": 20,
+                "totalOuts": 9
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 2
+        }
+    },
+    "Kanpur": {
+        "Green Park": {
+            "matchesPlayed": 2,
+            "_matches": {},
+            "totalRuns": 594,
+            "name": "Green Park",
+            "city": "Kanpur",
+            "highestRecordedScore": 173,
+            "lowestRecordedScore": 124,
+            "highestRecodedMatch": {
+                "runs": 173,
+                "overs": 18,
+                "totalOuts": 3
+            },
+            "lowestRecordedMatch": {
+                "runs": 124,
+                "overs": 20,
+                "totalOuts": 8,
+                "byTeam": {
+                    "Team_Id": "2",
+                    "Team_Name": "Royal Challengers Bangalore",
+                    "Team_Short_Code": "RCB"
+                }
+            },
+            "matchesWonBattingFirst": 0,
+            "matchesWonBowlingFirst": 2
+        }
+    }
+}
