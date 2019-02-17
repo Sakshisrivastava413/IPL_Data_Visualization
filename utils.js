@@ -246,6 +246,18 @@ function getTeamName(teamData) {
   return teams; 
 }
 
+function getPlayerNames(playerData) {
+  const players = {};
+  playerData.forEach(row => {
+    if(players[row.Player_Id]) {
+    } else {
+      players[row.Player_Id] = row;
+    }
+  });
+  delete players['undefined'];
+  return players;
+}
+
 module.exports = {
-  convertToJSON, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };
