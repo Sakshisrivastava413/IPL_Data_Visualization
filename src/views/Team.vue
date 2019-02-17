@@ -144,7 +144,4 @@ export default {
   .chartObservation {
     float: right;
   }
-  .barChart {
-    width: 60%;
-  }
 </style>
