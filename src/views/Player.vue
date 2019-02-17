@@ -1,5 +1,9 @@
 <template>
-  
+  <BarChart
+          titleText="Top 10 Batsmen"
+          chartType="bar"
+          :chartData="TopBatsmanData.data"
+          :chartOptions="TopBatsmanData.options" />
 </template>
 
 <script>
@@ -30,6 +34,35 @@ export default {
           totalRuns: team.totalRuns
         });
     });
+
+    this.TopBatsmanData.data = {
+      labels: topBatsmenData.map(t => t.name),
+      datasets: [{
+        label: 'Total Runs',
+         data: topBatsmenData.map(t => t.totalRuns),
+         backgroundColor: '#7E94F6'
+      }
+      ]
+    };
+    this.TopBatsmanData.options = {
+      scales: {
+        xAxes: [{
+          ticks: {
+          beginAtZero: true,
+          maxRotation: 0,
+          minRotation: 0
+          }
+        }],
+        yAxes: [{}],
+      },
+      tooltips: {mode: 'index',
+            axis: 'y'
+
+        },
+      onHover: function(e) {
+        console.log(e)
+      }
+    }
   }
 }
 </script>

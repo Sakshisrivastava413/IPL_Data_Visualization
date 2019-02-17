@@ -301,6 +301,10 @@ function getBatsmanData(ballByBallJSON, matchJSON, playerDetails, teamDetails) {
   // console.log(batsmen_ar.sort((m1, m2) => m2.centuries - m1.centuries).slice(0, 10))
 }
 
+function getMatchLoserId(match) {
+  return match.Team_Name_Id == match.Match_Winner_Id ? match.Opponent_Team_Id : match.Team_Name_Id;
+}
+
 module.exports = {
-  convertToJSON, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getMatchLoserId, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };
