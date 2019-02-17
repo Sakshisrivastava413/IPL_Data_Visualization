@@ -1,18 +1,28 @@
 <template>
-  <BarChart
-    titleText="Top 10 Venues"
-    chartType="horizontalBar"
-    :chartData="TopVenuesChart.data"
-    :chartOptions="TopVenuesChart.options" />
+<div class="main">
+    <div class="barChart">
+      <BarChart
+        titleText="Top 10 Venues"
+        chartType="horizontalBar"
+        :chartData="TopVenuesChart.data"
+        :chartOptions="TopVenuesChart.options" />
+    </div>
+    <div class="chartObservation">
+      <Observation />
+    </div>
+  </div>
+ 
 </template>
 
 <script>
 import BarChart from '../components/BarChart.vue';
+import Observation from '../components/Observation.vue';
 import venue_json from '../../json/top10Venue.json';
 export default {
   name: 'Venue',
   components: {
     BarChart,
+    Observation
   },
   data() {
     return {
@@ -27,6 +37,18 @@ export default {
   },
   mounted() {
     const topVenueData = [];
+    const backgroundColor = [
+      '#F5B7B1',
+      '#D2B4DE',
+      '#F9E79F',
+      '#D5DBDB',
+      '#AED6F1',
+      '#EDBB99',
+      '#A3E4D7',
+      '#E2F5CC',
+      '#EECCF5',
+      '#FEA5A5',
+    ];
 
     Object.values(venue_json).forEach(venue => {
       topVenueData.push({
@@ -39,25 +61,19 @@ export default {
       datasets: [{
         label: 'Total Runs',
          data: topVenueData.map(t => t.matchesPlayed),
-         backgroundColor: '#6W54F6'
+         backgroundColor: backgroundColor
       }
       ]
     };
     this.TopVenuesChart.options = {
+      responsive: true,
       scales: {
         xAxes: [{
           ticks: {
-          beginAtZero: true,
-          maxRotation: 0,
-          minRotation: 0
+          beginAtZero: true
           }
         }],
         yAxes: [{
-          ticks: {
-          beginAtZero: true,
-          maxRotation: 0,
-          minRotation: 0
-          }
         }],
       }
     }
