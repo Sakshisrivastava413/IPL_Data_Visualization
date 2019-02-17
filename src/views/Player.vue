@@ -1,18 +1,28 @@
 <template>
-  <BarChart
-          titleText="Top 10 Batsmen"
-          chartType="bar"
-          :chartData="TopBatsmanData.data"
-          :chartOptions="TopBatsmanData.options" />
+  <div class="main">
+    <div class="barChart">
+      <BarChart
+        titleText="Top 10 Batsmen"
+        chartType="bar"
+        :chartData="TopBatsmanData.data"
+        :chartOptions="TopBatsmanData.options"
+      />
+    </div>
+    <div class="chartObservation">
+      <Observation />
+    </div>
+  </div>
 </template>
 
 <script>
 import BarChart from '../components/BarChart.vue';
+import Observation from '../components/Observation.vue';
 import batsman_json from '../../json/top10Batsmen.json';
 export default {
   name: 'Player',
   components: {
     BarChart,
+    Observation
   },
   data() {
     return {
@@ -40,7 +50,7 @@ export default {
       datasets: [{
         label: 'Total Runs',
          data: topBatsmenData.map(t => t.totalRuns),
-         backgroundColor: '#7E94F6'
+         backgroundColor: '#76D7C4'
       }
       ]
     };
@@ -69,5 +79,14 @@ export default {
 </script>
 
 <style>
-
+  .main {
+    display: inline;
+  }
+  .barChart {
+    margin: 0px 30px;
+    width: 60%;
+  }
+  .chartObservation {
+    float: right;
+  }
 </style>
