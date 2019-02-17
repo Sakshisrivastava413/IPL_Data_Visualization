@@ -1,7 +1,7 @@
 <template>
   <BarChart
     titleText="Top 10 Venues"
-    chartType="bar"
+    chartType="horizontalBar"
     :chartData="TopVenuesChart.data"
     :chartOptions="TopVenuesChart.options" />
 </template>
@@ -39,14 +39,18 @@ export default {
       datasets: [{
         label: 'Total Runs',
          data: topVenueData.map(t => t.matchesPlayed),
-         backgroundColor: '#7E94F6'
+         backgroundColor: '#6W54F6'
       }
       ]
     };
     this.TopVenuesChart.options = {
       scales: {
         xAxes: [{
-          
+          ticks: {
+          beginAtZero: true,
+          maxRotation: 0,
+          minRotation: 0
+          }
         }],
         yAxes: [{
           ticks: {
