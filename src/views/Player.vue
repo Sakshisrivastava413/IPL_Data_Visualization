@@ -8,6 +8,28 @@
         :chartOptions="TopBatsmanData.options"
       />
     </div>
+    <div>
+      <div class="card" style="width: 18rem;" v-if="focusedBatman">
+        <div class="card-body">
+          <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{focusedBatman.teamDetails.Team_Name}}</h6>
+          <p class="card-text">
+            Total Runs Scored: <span class="text-value">{{focusedBatman.totalRuns}}</span>
+            <br />
+            Total Matches Played: <span class="text-value">{{Object.keys(focusedBatman.matches).length}}</span>
+            <br />
+            Total Centuries Earned: <span class="text-value">{{focusedBatman.centuries}}</span>
+          </p>
+        </div>
+      </div>
+        <div class="card" style="width: 18rem;" v-else>
+          <div class="card-body">
+            <p class="not-selected">
+              Click any player bar to show more.
+            </p>
+          </div>
+      </div>
+    </div>
     <div class="chartObservation">
       <Observation />
     </div>
@@ -32,12 +54,13 @@ export default {
           labels: [],
           datasets: []
         }
-      }
+      },
+      focusedBatman: null
     }
   },
   mounted() {
     const topBatsmenData = [];
-
+    console.log(batsman_json)
     Object.values(batsman_json).forEach(team => {
         topBatsmenData.push({
           name: team.details.Player_Name,
@@ -66,12 +89,8 @@ export default {
         }],
         yAxes: [{}],
       },
-      tooltips: {mode: 'index',
-            axis: 'y'
-
-        },
-      onHover: function(e) {
-        console.log(e)
+      onClick: (evt, item) => {
+        this.focusedBatman = batsman_json[item[0]._index]
       }
     }
   }
@@ -88,5 +107,15 @@ export default {
   }
   .chartObservation {
     float: right;
+  }
+  .card-text {
+    color: rgb(58, 180, 156)
+  }
+  .text-value {
+    color: black
+  }
+  .not-selected {
+    color: gray;
+    font-size: 20px;
   }
 </style>

@@ -53,13 +53,14 @@ export default {
     Object.values(venue_json).forEach(venue => {
       topVenueData.push({
         vName: venue.name,
-        matchesPlayed: venue.matchesPlayed
+        matchesPlayed: venue.matchesPlayed,
+        totalRuns: venue.totalRuns
       })
     });
     this.TopVenuesChart.data = {
       labels: topVenueData.map(t => t.vName),
       datasets: [{
-        label: 'Total Runs',
+        label: 'Matches played',
          data: topVenueData.map(t => t.matchesPlayed),
          backgroundColor: backgroundColor
       }
@@ -75,6 +76,14 @@ export default {
         }],
         yAxes: [{
         }],
+      },
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem) {
+            return `No. of matches played: ${tooltipItem.xLabel}
+              Total runs: ${topVenueData.map(t => t.totalRuns)}`;
+          }
+        }
       }
     }
   }
