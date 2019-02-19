@@ -16,7 +16,7 @@
 
 <style>
  #app {
-    background-color: whitesmoke;
+    background-color: white;
     height: 1000px
   }
 </style>
