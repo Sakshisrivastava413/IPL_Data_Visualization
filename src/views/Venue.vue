@@ -1,13 +1,13 @@
 <template>
 <div class="main">
-    <div class="barChart">
+    <div class="chart-container">
       <BarChart
-        titleText="Top 10 Venues"
+        titleText="Top Venues"
         chartType="horizontalBar"
         :chartData="TopVenuesChart.data"
         :chartOptions="TopVenuesChart.options" />
     </div>
-    <div class="chartObservation">
+    <div class="venue-card-container">
       <Observation />
     </div>
   </div>
@@ -80,8 +80,9 @@ export default {
       tooltips: {
         callbacks: {
           label: function(tooltipItem) {
+
             return `No. of matches played: ${tooltipItem.xLabel}
-              Total runs: ${topVenueData.map(t => t.totalRuns)}`;
+              Total runs: ${topVenueData.find(v => v.vName == tooltipItem.yLabel).totalRuns}`;
           }
         }
       }
@@ -90,6 +91,26 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
+.chart-container {
+  margin: 20px;
+  margin-top: 0px;
+  width: 70%;
+  display: inline-block;
+  }
+  .venue-card-container {
+    display: inline-block;
+    position: absolute;
+    margin: 18px;
+  }
+</style>
+<style>
+.venue-card-container > div {
+  width: 21vw;
+  height: 30vh;
+  margin-top: 17vh;
+  border-radius: 14px;
+  box-shadow: 1px 1px 2px 2px black;
+}
 </style>

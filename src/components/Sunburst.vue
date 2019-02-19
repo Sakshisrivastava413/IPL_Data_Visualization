@@ -1,11 +1,11 @@
 <template>
 <div>
-  <div class="chart">
-    <ChartTitle :title="titleText" />
+  <ChartTitle :title="titleText" />
+  <div class="chart-container">
     <chart-sunburst ref="chart" :data="chartData" :config="chartConfig"></chart-sunburst>
-    <div class="observation">
-      <Observation />
-    </div>
+  </div>
+  <div class="card-container">
+    <Observation />
   </div>
 </div>
 </template>
@@ -174,14 +174,22 @@ export default {
 </script>
 
 <style scoped>
-  .chart {
-    width: 100%;
-    height: 500px;
-    margin-top: 30px;
-  }
-  .observation {
-    margin: 10px 30px;
-  }
+.chart-container {
+  width: 100%;
+  height: 63vh;
+  display: inline-block;
+}
+.card-container {
+  margin-left: 80px
+}
+.card-container > div {
+  background: white;
+  width: 90%;
+  height: 10vh;
+  margin-top: 10px;
+  border-radius: 14px;
+  box-shadow: 1px 1px 2px 2px black;
+}
   /* media query to force hide breadcrumbs when the screen is too small */
   @media screen and (max-width: 500px) {
     .d2b-breadcrumbs-frame {

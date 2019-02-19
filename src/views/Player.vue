@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="barChart">
+    <div class="chart-container">
       <BarChart
         titleText="Top 10 Batsmen"
         chartType="bar"
@@ -8,30 +8,25 @@
         :chartOptions="TopBatsmanData.options"
       />
     </div>
-    <div>
-      <div class="card" style="width: 18rem;" v-if="focusedBatman">
-        <div class="card-body">
-          <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{focusedBatman.teamDetails.Team_Name}}</h6>
-          <p class="card-text">
-            Total Runs Scored: <span class="text-value">{{focusedBatman.totalRuns}}</span>
-            <br />
-            Total Matches Played: <span class="text-value">{{Object.keys(focusedBatman.matches).length}}</span>
-            <br />
-            Total Centuries Earned: <span class="text-value">{{focusedBatman.centuries}}</span>
-          </p>
-        </div>
-      </div>
-        <div class="card" style="width: 18rem;" v-else>
-          <div class="card-body">
-            <p class="not-selected">
-              Click any player bar to show more.
-            </p>
-          </div>
+    <div class="card-container" v-if="focusedBatman">
+      <div class="card-body">
+        <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{focusedBatman.teamDetails.Team_Name}}</h6>
+        <p class="card-text">
+          Total Runs Scored: <span class="text-value">{{focusedBatman.totalRuns}}</span>
+          <br />
+          Total Matches Played: <span class="text-value">{{Object.keys(focusedBatman.matches).length}}</span>
+          <br />
+          Total Centuries Earned: <span class="text-value">{{focusedBatman.centuries}}</span>
+        </p>
       </div>
     </div>
-    <div class="chartObservation">
-      <Observation />
+    <div class="card-container" style="width: 18rem;" v-else>
+      <div class="card-body">
+        <p class="not-selected">
+          Click any player bar to show more.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +35,7 @@
 import BarChart from '../components/BarChart.vue';
 import Observation from '../components/Observation.vue';
 import batsman_json from '../../json/top10Batsmen.json';
+import match_json from '../../json/matchData.json';
 export default {
   name: 'Player',
   components: {
@@ -60,7 +56,6 @@ export default {
   },
   mounted() {
     const topBatsmenData = [];
-    console.log(batsman_json)
     Object.values(batsman_json).forEach(team => {
         topBatsmenData.push({
           name: team.details.Player_Name,
@@ -93,21 +88,19 @@ export default {
         this.focusedBatman = batsman_json[item[0]._index]
       }
     }
+
+    const topManOfTheMatchData = [];
+    match_json.forEach(match => {
+        topManOfTheMatchData.push({
+          id: match.Man_Of_The_Match_Id
+        });
+        console.log(topManOfTheMatchData)
+    });
   }
 }
 </script>
 
-<style>
-  .main {
-    display: inline;
-  }
-  .barChart {
-    margin: 0px 30px;
-    width: 60%;
-  }
-  .chartObservation {
-    float: right;
-  }
+<style scoped>
   .card-text {
     color: rgb(58, 180, 156)
   }
@@ -118,4 +111,24 @@ export default {
     color: gray;
     font-size: 20px;
   }
+  .chart-container {
+  margin: 20px;
+  margin-top: 0px;
+  width: 60%;
+  display: inline-block;
+  }
+  .card-container {
+    display: inline-block;
+    position: absolute;
+    margin: 18px;
+  }
+</style>
+<style>
+.card-container > div {
+  width: 31vw;
+  height: 30vh;
+  margin-top: 17vh;
+  border-radius: 14px;
+  box-shadow: 1px 1px 2px 2px black;
+}
 </style>

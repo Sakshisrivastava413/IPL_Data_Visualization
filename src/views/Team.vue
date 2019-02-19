@@ -1,7 +1,9 @@
 <template>
   <div>
-    <Sunburst titleText="Teams Performance of all Seasons" />
-    <div class="main-chart-container">
+    <div class="sunburstChart">
+      <Sunburst titleText="Teams Performance of all Seasons" />
+    </div>
+    <div class="bar-chart-container">
       <div class="barChart">
         <BarChart
           titleText="Runs Per Team For All Seasons"
@@ -118,30 +120,35 @@ export default {
       ]
     };
     this.TeamWinLoseCountChart.options = {
-      responsive: true,
-      scales: {
-        yAxes: [{
-          stacked: true, 
-          gridLines: { display: false }
-        }],
-        xAxes: [{
-          stacked: true,
-        }]
-      }
+      responsive: true
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
   .main-chart-container {
-    display: inline;
   }
+
   .barChart {
-    margin: 120px 30px;
-    width: 60%;
-  }
+  margin: 20px;
+  width: 60%;
+  display: inline-block;
+}
   .chartObservation {
-    float: right;
-  }
+  display: inline-block;
+  position: absolute;
+  margin: 18px;
+}
+</style>
+
+<style>
+.chartObservation > div {
+  background: white;
+  width: 31vw;
+  height: 30vh;
+  margin-top: 20vh;
+  border-radius: 14px;
+  box-shadow: 1px 1px 2px 2px black;
+}
 </style>

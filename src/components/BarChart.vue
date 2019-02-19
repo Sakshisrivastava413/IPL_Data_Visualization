@@ -1,7 +1,9 @@
 <template>
   <div class="main-container">
-    <ChartTitle :title="titleText" />
-    <div>
+    <div class="title-container">
+      <ChartTitle :title="titleText" />
+    </div>
+    <div class="bar-chart-container">
       <canvas ref="chart"></canvas>
     </div>
   </div>
@@ -43,13 +45,13 @@
 
 <style scoped>
 
-  .main-container {
-    padding-top: 30px
-  }
-
-  .graph-header {
-    margin-top: 30px;
-    margin-left: 30px;
-    font-size: 30px;
-  }
+.title-container {
+  margin-bottom: 40px
+}
+.main-container {
+  margin-top: 30px;
+}
+.bar-chart-container {
+  margin-left: 20px
+}
 </style>
