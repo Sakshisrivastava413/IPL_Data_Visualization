@@ -169,12 +169,6 @@ export default {
   box-shadow: 1px 1px 2px 2px black;
 }
 
-.root-detail {
-  font-weight: 500;
-  font-size: 18px;
-  margin: 10px;
-}
-
 .chart-detail {
   width: 100%;
 padding-top: 20px;

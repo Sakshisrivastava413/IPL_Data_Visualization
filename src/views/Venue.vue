@@ -7,7 +7,10 @@
         :chartData="TopVenuesChart.data"
         :chartOptions="TopVenuesChart.options" />
     </div>
-    <div class="venue-card-container">
+    <div class="chart-observation">
+      <div class="observation-card">
+        <p>Clearly, the highest number of matches have been played at Mumbai, followed by Bangalore, Kolkata and Delhi in order.</p>
+      </div>
     </div>
   </div>
  
@@ -96,18 +99,16 @@ export default {
   width: 70%;
   display: inline-block;
   }
-  .venue-card-container {
-    display: inline-block;
-    position: absolute;
-    margin: 18px;
-  }
+  .chart-observation {
+  margin: 18px;
+  margin-top: 10%;
+  position: absolute;
+  display: inline-block;
+}
 </style>
 <style>
-.venue-card-container > div {
+.observation-card {
   width: 21vw;
   height: 30vh;
-  margin-top: 17vh;
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px 2px black;
 }
 </style>

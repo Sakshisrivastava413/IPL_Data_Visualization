@@ -17,7 +17,6 @@
 <style>
  #app {
   background-color: white;
-  height: 1000px
 }
 
 .observation-card {
