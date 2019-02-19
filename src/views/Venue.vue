@@ -8,7 +8,6 @@
         :chartOptions="TopVenuesChart.options" />
     </div>
     <div class="venue-card-container">
-      <Observation />
     </div>
   </div>
  
@@ -16,13 +15,11 @@
 
 <script>
 import BarChart from '../components/BarChart.vue';
-import Observation from '../components/Observation.vue';
 import venue_json from '../../json/top10Venue.json';
 export default {
   name: 'Venue',
   components: {
-    BarChart,
-    Observation
+    BarChart
   },
   data() {
     return {

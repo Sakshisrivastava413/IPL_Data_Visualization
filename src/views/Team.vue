@@ -1,28 +1,39 @@
 <template>
   <div>
-    <div class="sunburstChart">
       <Sunburst titleText="Teams Performance of all Seasons" />
-    </div>
+      <div class="sunburst-card-container">
+        <div class="sunburst-observation-card">
+          <div class="chart-detail">
+            <SunburstTreeView />
+          </div>
+        </div>
+      </div>
     <div class="bar-chart-container">
-      <div class="barChart">
+      <div class="bar-chart">
         <BarChart
           titleText="Runs Per Team For All Seasons"
           chartType="bar"
           :chartData="TeamRunsChart.data"
-          :chartOptions="TeamRunsChart.options" />
+          :chartOptions="TeamRunsChart.options"
+        />
       </div>
-      <div class="chartObservation">
-        <Observation />
+      <div class="chart-observation">
+        <div class="observation-card">
+          Hi
+        </div>
       </div>
-      <div class="barChart">
+      <div class="bar-chart">
         <BarChart
           titleText="No of Wins / Loses of Teams For All Seasons"
           chartType="horizontalBar"
           :chartData="TeamWinLoseCountChart.data"
-          :chartOptions="TeamWinLoseCountChart.options" />
+          :chartOptions="TeamWinLoseCountChart.options"
+        />
       </div>
-      <div class="chartObservation">
-        <Observation />
+      <div class="chart-observation">
+        <div class="observation-card">
+          Hi
+        </div>
       </div>
     </div>
   </div>
@@ -31,7 +42,7 @@
 <script>
 import Sunburst from '../components/Sunburst.vue';
 import BarChart from '../components/BarChart.vue';
-import Observation from '../components/Observation.vue';
+import SunburstTreeView from '../components/SunburstTreeView.vue';
 import team_json from '../../json/teamOverallData.json';
 import teamWinLose_json from '../../json/teamWinLoseCount.json';
 
@@ -40,7 +51,7 @@ export default {
   components: {
     Sunburst,
     BarChart,
-    Observation
+    SunburstTreeView
   },
   data() {
     return {
@@ -127,28 +138,45 @@ export default {
 </script>
 
 <style scoped>
-  .main-chart-container {
-  }
-
-  .barChart {
+.bar-chart {
   margin: 20px;
-  width: 60%;
+  width: 60vw;
   display: inline-block;
 }
-  .chartObservation {
-  display: inline-block;
-  position: absolute;
+.chart-observation {
   margin: 18px;
+  margin-top: 12%;
+  position: absolute;
+  display: inline-block;
+}
+
+.sunburst-card-container {
+  margin-left: 80px;
 }
 </style>
 
 <style>
-.chartObservation > div {
-  background: white;
-  width: 31vw;
+.observation-card {
+  width: 30vw;
   height: 30vh;
-  margin-top: 20vh;
+}
+
+.sunburst-observation-card {
+  width: 90%;
+  height: 70vh;
+  margin-top: 10px;
   border-radius: 14px;
   box-shadow: 1px 1px 2px 2px black;
+}
+
+.root-detail {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.chart-detail {
+  width: 100%;
+padding-top: 20px;
 }
 </style>

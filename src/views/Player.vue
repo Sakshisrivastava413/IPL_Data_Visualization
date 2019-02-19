@@ -33,14 +33,12 @@
 
 <script>
 import BarChart from '../components/BarChart.vue';
-import Observation from '../components/Observation.vue';
 import batsman_json from '../../json/top10Batsmen.json';
 import match_json from '../../json/matchData.json';
 export default {
   name: 'Player',
   components: {
-    BarChart,
-    Observation
+    BarChart
   },
   data() {
     return {

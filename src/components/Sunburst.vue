@@ -4,16 +4,12 @@
   <div class="chart-container">
     <chart-sunburst ref="chart" :data="chartData" :config="chartConfig"></chart-sunburst>
   </div>
-  <div class="card-container">
-    <Observation />
-  </div>
 </div>
 </template>
 
 <script>
 import { ChartSunburst } from "vue-d2b";
 import ChartTitle from "./ChartTitle.vue";
-import Observation from "./Observation.vue";
 import teams_details_json from "../../json/teamOverallData.json";
 
 export default {
@@ -21,14 +17,13 @@ export default {
   props: [ 'titleText' ],
   components: {
     ChartSunburst,
-    ChartTitle,
-    Observation
+    ChartTitle
   },
   data() {
     return {
       chartData: {
         label: "Team Details",
-        color: "#D0D3D4",
+        color: "#4259CB",
         children: []
       },
       chartConfig: function(chart) {
@@ -123,7 +118,7 @@ export default {
             color: '#5A80FF',
             children: [
               {
-                label: "Batsmans hits",
+                label: "Runs Conceded to Batsmans hits",
                 color: "#F4D03F",
                 children: [
                   {
@@ -139,7 +134,7 @@ export default {
                 ]
               },
               {
-                label: "Extra Runs",
+                label: "Runs Conceded Extra Runs",
                 color: "#229954",
                 children: [
                   {
@@ -179,17 +174,7 @@ export default {
   height: 63vh;
   display: inline-block;
 }
-.card-container {
-  margin-left: 80px
-}
-.card-container > div {
-  background: white;
-  width: 90%;
-  height: 10vh;
-  margin-top: 10px;
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px 2px black;
-}
+
   /* media query to force hide breadcrumbs when the screen is too small */
   @media screen and (max-width: 500px) {
     .d2b-breadcrumbs-frame {
