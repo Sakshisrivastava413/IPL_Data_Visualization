@@ -28,12 +28,35 @@
         </p>
       </div>
     </div>
+
+    <div class="chart-container">
+      <BarChart
+        titleText="Highest Man Of the Matches Winners"
+        chartType="bar"
+        :chartData="TopManOfTheMatchData.data"
+        :chartOptions="TopManOfTheMatchData.options"
+      />
+    </div>
+    <div class="card-container" v-if="focusedBatman">
+      <div class="card-body">
+        <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{focusedBatman.teamDetails.Team_Name}}</h6>
+        <p class="card-text">
+          Total Runs Scored: <span class="text-value">{{focusedBatman.totalRuns}}</span>
+          <br />
+          Total Matches Played: <span class="text-value">{{Object.keys(focusedBatman.matches).length}}</span>
+          <br />
+          Total Centuries Earned: <span class="text-value">{{focusedBatman.centuries}}</span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import BarChart from '../components/BarChart.vue';
 import batsman_json from '../../json/top10Batsmen.json';
+import manOfTheMatch_json from '../../json/topManOfTheMatch.json';
 import match_json from '../../json/matchData.json';
 export default {
   name: 'Player',
@@ -43,6 +66,13 @@ export default {
   data() {
     return {
       TopBatsmanData: {
+        options: {},
+        data: {
+          labels: [],
+          datasets: []
+        }
+      },
+      TopManOfTheMatchData: {
         options: {},
         data: {
           labels: [],
@@ -80,20 +110,41 @@ export default {
           minRotation: 0
           }
         }],
-        yAxes: [{}],
       },
       onClick: (evt, item) => {
         this.focusedBatman = batsman_json[item[0]._index]
       }
     }
 
-    const topManOfTheMatchData = [];
-    match_json.forEach(match => {
-        topManOfTheMatchData.push({
-          id: match.Man_Of_The_Match_Id
+    const TopManOfTheMatchDetail = [];
+    Object.values(manOfTheMatch_json).forEach(player => {
+        TopManOfTheMatchDetail.push({
+          name: player.details.Player_Name,
+          total: player.total
         });
-        console.log(topManOfTheMatchData)
     });
+
+    this.TopManOfTheMatchData.data = {
+      labels: TopManOfTheMatchDetail.map(t => t.name),
+      datasets: [{
+        label: 'No Of Awards',
+         data: TopManOfTheMatchDetail.map(t => t.total),
+         backgroundColor: '#F36D9C'
+      }
+      ]
+    };
+    this.TopManOfTheMatchData.options = {
+      responsive: true,
+      scales: {
+        yAxes: [{
+          ticks: {
+          beginAtZero: true,
+          maxRotation: 0,
+          minRotation: 0
+          }
+        }],
+      }
+    }
   }
 }
 </script>
