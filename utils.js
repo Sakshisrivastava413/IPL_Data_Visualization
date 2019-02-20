@@ -543,10 +543,7 @@ function getManOfTheMatchDetail(match, team, player) {
 
       manOfTheMatch.set(match.Man_Of_The_Match_Id, manOfMatchPlayer);
   });
-  // const finalResults = {};
-  // manOfTheMatch.forEach((val, key) => key != "" && (finalResults[key] = val));
-  // return finalResults;
-
+  
   const finalResult = [];
   manOfTheMatch.forEach((val, key) => {
     key != "" && (finalResult[key] = val)
@@ -557,7 +554,37 @@ function getManOfTheMatchDetail(match, team, player) {
   return finalResult;
 }
 
+function getWinTypeDetails(match, teamsJSON) {
+  const teams = new Map();
+  match.forEach(match => {
+    if (match.Win_Type == "No Result" || match.Win_Type == "Tie") return;
+    const teamInfo = teamsJSON.find(t => t.Team_Id == match.Match_Winner_Id);
+    const team = teams.get(match.Match_Winner_Id) || {
+      winByRuns: [],
+      winByWickets: [],
+      teamId: teamInfo.Team_Id,
+      teamName: teamInfo.Team_Name,
+      teamShortCode: teamInfo.Team_Short_Code,
+    };
+
+    if (match.Win_Type == 'by runs') {
+      team.winByRuns.push(Number(match.Won_By));
+    } else {
+      team.winByWickets.push(Number(match.Won_By));
+    }
+
+    teams.set(match.Match_Winner_Id, team);
+  });
+
+  const finalResult = [];
+  teams.forEach((val, key) => {
+    key != "" && (finalResult[key] = val)
+  });
+
+  return finalResult;
+}
+
 
 module.exports = {
-  convertToJSON, getMatchDetails, getManOfTheMatchDetail, venueDetails, topVenueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getMatchDetails, getWinTypeDetails, getManOfTheMatchDetail, venueDetails, topVenueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };
