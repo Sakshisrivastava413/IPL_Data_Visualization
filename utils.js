@@ -531,7 +531,33 @@ function getMatchDetails(ballByBallData) {
   return details;
 }
 
+function getManOfTheMatchDetail(match, team, player) {
+  const manOfTheMatch = new Map();
+  match.forEach(match => {
+    if (match.Man_Of_The_Match_Id == "NULL") return;
+    const manOfMatchPlayer = manOfTheMatch.get(match.Man_Of_The_Match_Id) || {
+      total: 0,
+      details: player.get(match.Man_Of_The_Match_Id),
+    }
+    manOfMatchPlayer.total++;
+
+      manOfTheMatch.set(match.Man_Of_The_Match_Id, manOfMatchPlayer);
+  });
+  // const finalResults = {};
+  // manOfTheMatch.forEach((val, key) => key != "" && (finalResults[key] = val));
+  // return finalResults;
+
+  const finalResult = [];
+  manOfTheMatch.forEach((val, key) => {
+    key != "" && (finalResult[key] = val)
+  });
+
+  finalResult.sort((b1, b2) => b2.total - b1.total);
+
+  return finalResult;
+}
+
 
 module.exports = {
-  convertToJSON, getMatchDetails, venueDetails, topVenueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
+  convertToJSON, getMatchDetails, getManOfTheMatchDetail, venueDetails, topVenueDetails, getBatsmanData, getPlayerNames, getTeamBowlingBattingData, getDataBySeasons, getTeamWinningAndLosingCount, getTeamName,
 };
