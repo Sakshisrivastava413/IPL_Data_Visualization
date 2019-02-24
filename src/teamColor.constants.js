@@ -12,7 +12,7 @@ export const TEAM_COLOR = [
   '#569BEE',
   '#A8D0FF',
   '#F3D2A3',
-  '#889EFF'
+  '#889EFF',
 ];
 
 export const BUBBLE_CHART_TEAM_COLOR = [
@@ -28,7 +28,7 @@ export const BUBBLE_CHART_TEAM_COLOR = [
   '#816363',
   '#3D8AE7',
   '#E19E40',
-  '#6D6D6D'
+  '#6D6D6D',
 ];
 
 export const VENUE_COLOR = [
@@ -43,3 +43,8 @@ export const VENUE_COLOR = [
   '#EECCF5',
   '#FEA5A5',
 ];
+
+export function hexToRgbString(hex, alpha = 1) {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return `rgba(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}, ${alpha})`;
+}

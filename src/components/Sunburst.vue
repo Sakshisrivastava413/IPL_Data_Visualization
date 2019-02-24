@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top: 76px">
-    <ChartTitle :title="titleText" />
+    <ChartTitle :title="titleText" :subTitle="subTitle" />
     <div class="chart-container">
       <chart-sunburst ref="chart" :data="chartData" :config="chartConfig"></chart-sunburst>
     </div>
@@ -10,12 +10,12 @@
 <script>
 import { ChartSunburst } from "vue-d2b";
 import ChartTitle from "./ChartTitle.vue";
-import { TEAM_COLOR } from "../teamColor.constants.js";
+import { TEAM_COLOR } from "../teamColor.constants";
 import teams_details_json from "../../json/teamOverallData.json";
 
 export default {
   name: "Sunburst",
-  props: [ 'titleText' ],
+  props: ['titleText', 'subTitle'],
   components: {
     ChartSunburst,
     ChartTitle

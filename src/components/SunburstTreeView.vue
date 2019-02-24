@@ -60,6 +60,6 @@ export default {
 
 <style>
 .tf-tree li {
-  padding: 0px 0.5em;
+  padding: 0px 0.2em;
 }
 </style>
