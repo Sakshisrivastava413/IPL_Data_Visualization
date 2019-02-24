@@ -1,55 +1,79 @@
 <template>
   <div>
-    <Sunburst titleText="Teams Performance of all Seasons"/>
+    <Sunburst titleText="Teams Performance of all Seasons" subTitle="(select a team to view a team's overall performance in detail)" />
     <div class="sunburst-card-container">
       <div class="sunburst-observation-card">
-        <div class="chart-detail">
-          <SunburstTreeView/>
+        <button @click="showTreeView = !showTreeView" class="tog-btn">{{!showTreeView ? 'Open Chart Info':'Close View'}}</button>
+        <div class="chart-detail" v-if="showTreeView">
+          <SunburstTreeView />
+        </div>
+        <div class="sunburst-observation-text">
+          <h3 style="margin-left: 20px">Some Observations</h3>
+          <i>
+          <ul>
+            <li>
+              <p>Mumbai Indians scored 6128 single runs which was highest of all.</p>
+            </li>
+            <li>
+              <p>Royal Challengers Bangalore took highest number of sixes, 855!</p>
+            </li>
+            <li>
+              <p>In terms of Bowling, RCB conceded the most (1060) extra runs and they still managed to score above among top 3.</p>
+            </li>
+            <li>
+              <p>Rajasthan Royals scored maximum amount of threes, 63.</p>
+            </li>
+          </ul>
+          </i>
         </div>
       </div>
     </div>
+    <div style="display: inline-block">
     <Chart
-      titleText="Runs Per Team For All Seasons"
+      titleText="Runs Per Team"
+      subTitleText="(for all seasons)"
       chartType="bar"
       :chartData="TeamRunsChart.data"
       :chartOptions="TeamRunsChart.options"
-      :parentStyle="chartContainerStyle()"
+      :parentStyle="chartContainerStyle(1)"
     />
-    <div class="chart-observation">
-      <div class="observation-card">Hi</div>
-    </div>
     <Chart
-      titleText="No of Wins / Loses of Teams For All Seasons"
+      titleText="No. of Wins / Loses"
+      subTitleText="(for all seasons)"
       chartType="horizontalBar"
       :chartData="TeamWinLoseCountChart.data"
       :chartOptions="TeamWinLoseCountChart.options"
-      :parentStyle="chartContainerStyle()"
+      :parentStyle="chartContainerStyle(1)"
     />
-    <div class="chart-observation">
-      <div class="observation-card">Hi</div>
     </div>
 
     <Chart
-      titleText="Win By Runs for each Team"
+      titleText="Win By Runs"
       chartType="bubble"
       :chartData="WinByRunsChart.data"
       :chartOptions="WinByRunsChart.options"
-      :parentStyle="chartContainerStyle()"
+      :parentStyle="chartContainerStyle(0)"
     />
-    <div class="chart-observation">
-      <div class="observation-card">Hi</div>
+    <div class="observation-card">
+      <i>
+        <p>
+          <b>Mumbai Indians</b> had the most maintained performance overall and <b>RCB</b> had the most powerful one.
+          MI won a lot of matches within a score offset of 30 whereas RCB kicked off 7 teams with more than 70 runs to win.
+        </p>
+        <hr />
+        <p>
+          <b>Kings XI Punjab</b> had been the best target chasing team, they won <b>13 matches by 6 wickets</b> and <b>9 matches by 7</b> wickets.
+        </p>
+      </i>
     </div>
 
     <Chart
-      titleText="Win By Wickets for each Team"
+      titleText="Win By Wickets"
       chartType="bubble"
       :chartData="WinByWicketsChart.data"
       :chartOptions="WinByWicketsChart.options"
-      :parentStyle="chartContainerStyle(1)"
+      :parentStyle="chartContainerStyle(0, 1)"
     />
-    <div class="chart-observation">
-      <div class="observation-card">Hi</div>
-    </div>
   </div>
 </template>
 
@@ -63,7 +87,7 @@ import teamData from '../../json/teamData.json'
 import winBy_json from "../../json/winTypeData.json";
 import teamWinLose_json from "../../json/teamWinLoseCount.json";
 
-import { BUBBLE_CHART_TEAM_COLOR } from '../teamColor.constants';
+import { BUBBLE_CHART_TEAM_COLOR, hexToRgbString } from '../teamColor.constants';
 
 export default {
   name: "Team",
@@ -86,7 +110,8 @@ export default {
                  ${tooltipItems.yLabel} Runs`;
               }
             }
-          }
+          },
+          legend: { display: false }
         },
         data: {
           labels: [],
@@ -96,6 +121,7 @@ export default {
       TeamWinLoseCountChart: {
         options: {
           responsive: true,
+          legend: { display: false }
         },
         data: {
           labels: [],
@@ -141,7 +167,8 @@ export default {
           labels: [],
           datasets: []
         }
-      }
+      },
+      showTreeView: false
     };
   },
   mounted() {
@@ -180,21 +207,25 @@ export default {
       teamWinLoseDetails.push({
         shortCode: team_detail.details.Team_Short_Code,
         wins: team_detail.wins,
-        loses: team_detail.loses
+        loses: team_detail.loses,
+        color: teamColorMap[team_detail.details.Team_Short_Code]
       });
     });
+
+    teamWinLoseDetails.sort((t1, t2) => t2.wins - t1.wins);
+
     this.TeamWinLoseCountChart.data = {
       labels: teamWinLoseDetails.map(t => t.shortCode),
       datasets: [
         {
           label: "No of Wins",
           data: teamWinLoseDetails.map(t => t.wins),
-          backgroundColor: "#61B96D"
+          backgroundColor: teamWinLoseDetails.map(t => t.color)
         },
         {
           label: "No of Loses",
           data: teamWinLoseDetails.map(t => t.loses),
-          backgroundColor: "#F18F8C"
+          backgroundColor: teamWinLoseDetails.map(t => t.color).map(color => hexToRgbString(color, 0.5))
         }
       ]
     };
@@ -295,9 +326,9 @@ export default {
     };
   },
   methods: {
-    chartContainerStyle: isLarge => ({
+    chartContainerStyle: (lessThanHalf, isLarge) => ({
       margin: '20px',
-      width: isLarge ? '94vw' : '66vw',
+      width: lessThanHalf ? '46vw' : (isLarge ? '94vw' : '66vw'),
       display: 'inline-block'
     })
   },
@@ -305,6 +336,13 @@ export default {
 </script>
 
 <style scoped>
+
+.tog-btn {
+  border-radius: 4px;
+  background: rgba(0,0,0, 0.5);
+  color: white;
+  outline: none;
+}
 
 .bubble-chart {
   margin: 20px;
@@ -325,16 +363,26 @@ export default {
 
 <style>
 .observation-card {
-  width: 30vw;
-  height: 30vh;
+  width: 24%;
+  display: inline-block;
+  position: absolute;
+  margin: 8px;
+  margin-top: 10%;
+  padding: 8px;
+  height: 40vh;
 }
 
 .sunburst-observation-card {
   width: 90%;
-  height: 70vh;
+  height: 100% !important;
   margin-top: 10px;
   border-radius: 14px;
   box-shadow: 1px 1px 2px 2px black;
+  padding: 8px;
+}
+
+.sunburst-observation-text {
+  margin: 14px;
 }
 
 .chart-detail {
