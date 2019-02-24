@@ -69,14 +69,41 @@ export default {
         display: 'inline-block'
       },
       TopBatsmanData: {
-        options: {},
+        options: {
+          responsive: true,
+          scales: {
+            xAxes: [{
+              ticks: {
+              beginAtZero: true,
+              maxRotation: 0,
+              minRotation: 0
+              }
+            }],
+          },
+          onClick: (evt, item) => {
+            if (item && item[0] && item[0]._index) {
+              this.focusedBatman = batsman_json[item[0]._index];
+            }
+          }
+        },
         data: {
           labels: [],
           datasets: []
         }
       },
       TopManOfTheMatchData: {
-        options: {},
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [{
+              ticks: {
+              beginAtZero: true,
+              maxRotation: 0,
+              minRotation: 0
+              }
+            }],
+          }
+        },
         data: {
           labels: [],
           datasets: []
@@ -103,23 +130,6 @@ export default {
       }
       ]
     };
-    this.TopBatsmanData.options = {
-      responsive: true,
-      scales: {
-        xAxes: [{
-          ticks: {
-          beginAtZero: true,
-          maxRotation: 0,
-          minRotation: 0
-          }
-        }],
-      },
-      onClick: (evt, item) => {
-        if (item && item[0] && item[0]._index) {
-          this.focusedBatman = batsman_json[item[0]._index];
-        }
-      }
-    }
 
     const TopManOfTheMatchDetail = [];
     Object.values(manOfTheMatch_json).forEach(player => {
@@ -138,18 +148,6 @@ export default {
       }
       ]
     };
-    this.TopManOfTheMatchData.options = {
-      responsive: true,
-      scales: {
-        yAxes: [{
-          ticks: {
-          beginAtZero: true,
-          maxRotation: 0,
-          minRotation: 0
-          }
-        }],
-      }
-    }
   }
 }
 </script>
@@ -170,16 +168,16 @@ export default {
     position: absolute;
     margin: 18px;
   }
-.chart-observation {
-  margin: 18px;
-  margin-top: 12%;
-  position: absolute;
-  display: inline-block;
-}
-.observation-card {
-  width: 30vw;
-  height: 30vh;
-}
+  .chart-observation {
+    margin: 18px;
+    margin-top: 12%;
+    position: absolute;
+    display: inline-block;
+  }
+  .observation-card {
+    width: 30vw;
+    height: 30vh;
+  }
 
 </style>
 <style>

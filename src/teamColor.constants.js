@@ -30,3 +30,16 @@ export const BUBBLE_CHART_TEAM_COLOR = [
   '#E19E40',
   '#6D6D6D'
 ];
+
+export const VENUE_COLOR = [
+  '#F5B7B1',
+  '#D2B4DE',
+  '#F9E79F',
+  '#D5DBDB',
+  '#AED6F1',
+  '#EDBB99',
+  '#A3E4D7',
+  '#E2F5CC',
+  '#EECCF5',
+  '#FEA5A5',
+];

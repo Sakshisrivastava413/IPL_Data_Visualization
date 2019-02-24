@@ -23,6 +23,7 @@
 import Chart from '../components/Chart.vue';
 import VenuesMap from '../components/VenuesMap.vue';
 import venue_json from '../../json/top10Venue.json';
+import { VENUE_COLOR } from '../teamColor.constants';
 
 export default {
   name: 'Venue',
@@ -32,8 +33,28 @@ export default {
   },
   data() {
     return {
+      topVenueData: [],
       TopVenuesChart: {
-        options: {},
+        options: {
+          responsive: true,
+          scales: {
+            xAxes: [{
+              ticks: {
+              beginAtZero: true
+              }
+            }],
+            yAxes: [{
+            }],
+          },
+          tooltips: {
+            callbacks: {
+              label: (tooltipItem) => {
+                return `No. of matches played: ${tooltipItem.xLabel}
+                  Total runs: ${this.topVenueData.find(v => v.vName == tooltipItem.yLabel).totalRuns}`;
+              }
+            }
+          }
+        },
         data: {
           labels: [],
           datasets: []
@@ -43,18 +64,6 @@ export default {
   },
   mounted() {
     const topVenueData = [];
-    const backgroundColor = [
-      '#F5B7B1',
-      '#D2B4DE',
-      '#F9E79F',
-      '#D5DBDB',
-      '#AED6F1',
-      '#EDBB99',
-      '#A3E4D7',
-      '#E2F5CC',
-      '#EECCF5',
-      '#FEA5A5',
-    ];
 
     Object.values(venue_json).forEach(venue => {
       topVenueData.push({
@@ -68,31 +77,10 @@ export default {
       datasets: [{
         label: 'Matches played',
          data: topVenueData.map(t => t.matchesPlayed),
-         backgroundColor: backgroundColor
-      }
-      ]
+         backgroundColor: VENUE_COLOR
+      }]
     };
-    this.TopVenuesChart.options = {
-      responsive: true,
-      scales: {
-        xAxes: [{
-          ticks: {
-          beginAtZero: true
-          }
-        }],
-        yAxes: [{
-        }],
-      },
-      tooltips: {
-        callbacks: {
-          label: function(tooltipItem) {
-
-            return `No. of matches played: ${tooltipItem.xLabel}
-              Total runs: ${topVenueData.find(v => v.vName == tooltipItem.yLabel).totalRuns}`;
-          }
-        }
-      }
-    }
+    this.topVenueData = topVenueData;
   }
 }
 </script>
