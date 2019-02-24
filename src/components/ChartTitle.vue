@@ -1,13 +1,16 @@
 <template>
   <div>
-    <p class="heading">{{ title }}</p>
+    <p class="heading">
+      {{ title }}
+      <span v-if="subTitle" class="subtitle">{{subTitle}}</span>
+    </p>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ChartTitle',
-  props: ['title']
+  props: ['title', 'subTitle']
 }
 </script>
 
@@ -18,6 +21,11 @@ export default {
     margin-top: 30px;
     color: black;
     border-bottom: 1px solid black;
+  }
+  .subtitle {
+    font-size: 16px;
+    margin-left: 20px;
+    color: grey;
   }
 </style>
 

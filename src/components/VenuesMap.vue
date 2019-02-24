@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="root">
     <div id="map-container">
       <GmapMap
         :center="{lat:10, lng:10}"
@@ -60,39 +60,7 @@
               - {{ venue.info.name }}
             </p>
             <div v-show="focusedVenue && focusedVenue.name == venue.name" class="list-item-detail">
-              <p>
-                Total Matches Played:
-                <span class="venue-detail">
-                  {{ focusedVenue && focusedVenue.info.matchesPlayed }}
-                </span>
-              </p>
-              <p>
-                Total Runs:
-                <span class="venue-detail">
-                  {{ focusedVenue && focusedVenue.info.totalRuns }}
-                </span>
-              </p>
-              <p>
-                Highest Total Recorded:
-                <br />
-                <span class="venue-detail" style="color: green">
-                  {{ focusedVenue && `${focusedVenue.info.highestRecodedMatch.runs} / ${focusedVenue.info.highestRecodedMatch.totalOuts} (${focusedVenue.info.highestRecodedMatch.overs} overs) by ${focusedVenue.info.highestRecodedMatch.byTeam.Team_Name}` }}
-                </span>
-              </p>
-              <p>
-                Lowest Total Recorded:
-                <br />
-                <span class="venue-detail" style="color: red">
-                  {{ focusedVenue && `${focusedVenue.info.lowestRecordedMatch.runs} / ${focusedVenue.info.lowestRecordedMatch.totalOuts} (${focusedVenue.info.lowestRecordedMatch.overs} overs) by ${focusedVenue.info.lowestRecordedMatch.byTeam.Team_Name}` }}
-                </span>
-              </p>
-              <div>
-                <Chart
-                  chartType="pie"
-                  :chartData="venuePieChart.data"
-                  :chartOptions="venuePieChart.options"
-                />
-              </div>
+              <VenueDetailCard :venue="focusedVenue" />
             </div>
           </div>
         </div>
@@ -101,15 +69,20 @@
   </div>
 </template>
 <script>
-import venueDetails from '../../json/venueDetails.json';
 import Chart from './Chart.vue';
-import GMAP_CUSTOM_STYLE from '../gmap.style';
 import { gmapApi } from 'vue2-google-maps';
+
+import VenueDetailCard from './VenueDetailCard.vue';
+import GMAP_CUSTOM_STYLE from '../gmap.style';
+
+import venueDetails from '../../json/venueDetails.json';
 
 export default {
   components: {
-    Chart
+    Chart,
+    VenueDetailCard
   },
+  props: ['focusVenue'],
   data() {
     return {
       gmap: null,
@@ -126,22 +99,43 @@ export default {
       focusedVenue: null,
       placeInfo: new Map(),
       countryInfo: new Map(),
-      venuePieChart: {
-        data: {},
-        options: {}
-      }
     };
   },
   computed: {
     google: gmapApi
   },
   watch: {
+    focusVenue: {
+      handler: function(venueName) {
+        // forcefully find and focus venue with `venueName`
+        for (let cityKey in venueDetails) {
+          for (let venueKey in venueDetails[cityKey]) {
+            const venue = venueDetails[cityKey][venueKey];
+            if (venueKey == venueName) {
+              // Sometimes you just got to do that...
+              this.selectedCountry = venue.country;
+              window.scrollTo({
+                left: 0,
+                top: this.$refs['root'].offsetTop - 58,
+                behavior: 'smooth'
+              });
+              setTimeout(() => {
+                this.selectedCity = venue.city;
+                setTimeout(() => {
+                  this.focusedVenue = { name: venue.name, info: venue };
+                }, 100);
+              }, 100);
+            }
+          }
+        }
+      }
+    },
     selectedCountry: {
       handler: function(newVal) {
         if (newVal === null)
           return this.generateAndFitBounds(this.countries.map(c => c.marker));
         this.countrySelected();
-      }
+      },
     },
     selectedCity: {
       handler: function(newVal) {
@@ -149,28 +143,6 @@ export default {
         this.citySelected();
       }
     },
-    focusedVenue: {
-      handler: function(newVal) {
-        const {
-          matchesWonBattingFirst,
-          matchesWonBowlingFirst
-        } = this.focusedVenue.info;
-        this.venuePieChart = {
-          data: {
-            datasets: [
-              {
-                data: [
-                  matchesWonBattingFirst,
-                  matchesWonBowlingFirst
-                ],
-                backgroundColor: ['red',' green']
-              },
-            ],
-            labels: ['Matches Won Batting First', 'Matches won Bowling First']
-          },
-        };
-      }
-    }
   },
   mounted() {
     this.$refs.mapRef.$mapPromise.then(map => {

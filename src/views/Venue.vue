@@ -3,18 +3,24 @@
     <div class="chart-container">
       <Chart
         titleText="Top Venues"
+        subTitleText="(Click bars to view more information about the stadium)"
         chartType="horizontalBar"
         :chartData="TopVenuesChart.data"
         :chartOptions="TopVenuesChart.options"
       />
     </div>
-    <div class="chart-observation">
-      <div class="observation-card">
-        <p>Clearly, the highest number of matches have been played at Mumbai, followed by Bangalore, Kolkata and Delhi in order.</p>
-      </div>
+    <div class="observation-card">
+      <p>
+        <i><b>M Chinnaswamy Stadium</b> has only <b>3</b> matches won in every <b>29</b> matches when batting is picked first.
+        The stadium always has favoured bowling first decisions.</i>
+      </p>
+      <hr />
+      <p>
+        <i><b>Eden Gardens</b> and <b>Wankhede Stadium</b> has been the most unpredictable and unbiased stadiums towards the team winning toss.</i>
+      </p>
     </div>
     <div class="venue-map-container">
-      <VenuesMap />
+      <VenuesMap :focusVenue="focusVenue" />
     </div>
   </div>
 </template>
@@ -22,8 +28,10 @@
 <script>
 import Chart from '../components/Chart.vue';
 import VenuesMap from '../components/VenuesMap.vue';
+import VenueDetailCard from '../components/VenueDetailCard.vue';
 
 import venue_json from '../../json/top10Venue.json';
+import venueDetails from '../../json/venueDetails.json';
 
 import { VENUE_COLOR } from '../teamColor.constants';
 
@@ -32,10 +40,12 @@ export default {
   components: {
     Chart,
     VenuesMap,
+    VenueDetailCard,
   },
   data() {
     return {
       topVenueData: [],
+      focusVenue: null,
       TopVenuesChart: {
         options: {
           responsive: true,
@@ -50,6 +60,11 @@ export default {
                 return `No. of matches played: ${tooltipItem.xLabel}
                   Total runs: ${this.topVenueData.find(v => v.vName == tooltipItem.yLabel).totalRuns}`;
               }
+            }
+          },
+          onClick: (evt, item) => {
+            if (item && item[0] && item[0]._index != null) {
+              this.focusVenue = this.topVenueData[item[0]._index].vName;
             }
           }
         },
@@ -89,19 +104,22 @@ export default {
     width: 70%;
     display: inline-block;
   }
-  .chart-observation {
-    margin: 18px;
-    margin-top: 10%;
-    position: absolute;
+  .observation-card {
+    width: 24%;
     display: inline-block;
+    position: absolute;
+    margin: 8px;
+    margin-top: 10%;
+    padding: 8px;
+    height: 40vh;
   }
   .venue-map-container {
     margin-top: 50px;
   }
 </style>
 <style>
-  .observation-card {
+  /* .observation-card {
     width: 21vw;
     height: 30vh;
-  }
+  } */
 </style>

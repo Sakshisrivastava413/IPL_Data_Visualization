@@ -1,7 +1,7 @@
 <template>
   <div class="main-container" :style="style">
     <div class="title-container" v-if="titleText">
-      <ChartTitle :title="titleText"/>
+      <ChartTitle :title="titleText" :subTitle="subTitleText" />
     </div>
     <div class="bar-chart-container">
       <canvas ref="chart"></canvas>
@@ -16,7 +16,7 @@
   export default {
     name: 'Chart',
     props: [
-      'titleText', 'chartType', 'chartData', 'chartOptions', 'parentStyle'
+      'titleText', 'subTitleText', 'chartType', 'chartData', 'chartOptions', 'parentStyle'
     ],
     components: {
       ChartTitle
