@@ -10,6 +10,7 @@
 <script>
 import { ChartSunburst } from "vue-d2b";
 import ChartTitle from "./ChartTitle.vue";
+import { TEAM_COLOR } from "../teamColor.constants.js";
 import teams_details_json from "../../json/teamOverallData.json";
 
 export default {
@@ -43,23 +44,7 @@ export default {
     }
   },
   mounted() {
-    const teamNameColor = [
-      '',
-      '#C7A9F9',
-      '#F2C5A6',
-      '#E9B1F0',
-      '#F5E6AC',
-      '#F2A9A9',
-      '#D3F0A3',
-      '#FFB8D2',
-      '#9FF1DC',
-      '#BF9898',
-      '#569BEE',
-      '#A8D0FF',
-      '#F3D2A3',
-      '#889EFF'
-    ];
-
+    const teamNameColor = TEAM_COLOR;
     Object.entries(teams_details_json).forEach(([key, team]) => {
       this.chartData.children.push({
         label: team.name,
