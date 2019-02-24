@@ -12,7 +12,8 @@
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.22",
     "vue-d2b": "^1.0.15",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue2-google-maps": "^0.10.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
