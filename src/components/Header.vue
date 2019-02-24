@@ -3,12 +3,12 @@
     <header>
       <p>IPL DATA VISUALIZATION</p>
       <nav>
-      <a href="#" id="menu-icon"></a>
+        <span id="menu-icon"></span>
         <ul>
-          <li><router-link class="nav-options current" to="/">Teams</router-link></li>
-          <li><router-link class="nav-options" to="/player">Players</router-link></li>
-          <li><router-link class="nav-options" to="/venue">Venues</router-link></li>
-          <li><router-link class="nav-options" to="/season">Seasons</router-link></li>
+          <li><router-link :class="{ 'current': current == 0, 'nav-options': true}" to="/">Teams</router-link></li>
+          <li><router-link :class="{ 'current': current == 1, 'nav-options': true}" to="/player">Players</router-link></li>
+          <li><router-link :class="{ 'current': current == 2, 'nav-options': true}" to="/venue">Venues</router-link></li>
+          <li><router-link :class="{ 'current': current == 3, 'nav-options': true}" to="/season">Seasons</router-link></li>
         </ul>
       </nav>
     </header>
@@ -17,11 +17,34 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  watch:{
+    $route (to){
+      this.current = this.getCurrent(to.name);
+    }
+  },
+  data() {
+    return {
+      current: this.getCurrent(this.$route.name)
+    }
+  },
+  methods: {
+    getCurrent(name) {
+      switch (name) {
+        case 'Team': return 0;
+        case 'Player': return 1;
+        case 'Venue': return 2;
+        case 'Season': return 3;
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+  a {
+    text-decoration: none;
+  }
   .main-container {
     padding: 0px;
   }
@@ -57,8 +80,8 @@ export default {
   }
 
   a:hover#menu-icon {
-	background-color: rgb(180, 178, 178);
-	border-radius: 4px 4px 0 0;
+    background-color: rgb(180, 178, 178);
+    border-radius: 4px 4px 0 0;
   }
 
   li {
@@ -80,42 +103,39 @@ export default {
     display: block;
   }
 
-/*MEDIA QUERY*/
-@media only screen and (max-width : 640px) {
+  /* media query for mobiles */
+  @media only screen and (max-width : 640px) {
+    header {
+      position: absolute;
+      width: 100%
+    }
 
-	header {
-    position: absolute;
-    width: 100%
-	}
+    #menu-icon {
+      display:inline-block;
+    }
 
-	#menu-icon {
-		display:inline-block;
-	}
+    nav ul, nav:active ul { 
+      display: none;
+      position: absolute;
+      padding: 20px;
+      background: rgb(51, 51, 51);
+      border: 5px solid #444;
+      right: 20px;
+      top: 60px;
+      width: 50%;
+      border-radius: 4px 0 4px 4px;
+    }
 
-	nav ul, nav:active ul { 
+    nav li {
+      text-align: center;
+      width: 100%;
+      padding: 10px 0;
+      margin: 0;
+    }
 
-		display: none;
-		position: absolute;
-		padding: 20px;
-		background: rgb(51, 51, 51);
-		border: 5px solid #444;
-		right: 20px;
-		top: 60px;
-		width: 50%;
-		border-radius: 4px 0 4px 4px;
-
-	}
-
-	nav li {
-		text-align: center;
-		width: 100%;
-		padding: 10px 0;
-		margin: 0;
-	}
-
-	nav:hover ul {
-		display: block;
-	}
-}
+    nav:hover ul {
+      display: block;
+    }
+  }
 </style>
 
