@@ -3,6 +3,7 @@
     <div class="title-container" v-if="titleText">
       <ChartTitle :title="titleText" :subTitle="subTitleText" />
     </div>
+    <slot></slot>
     <div class="bar-chart-container">
       <canvas ref="chart"></canvas>
     </div>
