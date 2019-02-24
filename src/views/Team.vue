@@ -13,7 +13,7 @@
         chartType="bar"
         :chartData="TeamRunsChart.data"
         :chartOptions="TeamRunsChart.options"
-        :parentStyle="chartContainerStyle"
+        :parentStyle="chartContainerStyle()"
       />
       <div class="chart-observation">
         <div class="observation-card">Hi</div>
@@ -23,7 +23,7 @@
         chartType="horizontalBar"
         :chartData="TeamWinLoseCountChart.data"
         :chartOptions="TeamWinLoseCountChart.options"
-        :parentStyle="chartContainerStyle"
+        :parentStyle="chartContainerStyle()"
       />
       <div class="chart-observation">
         <div class="observation-card">Hi</div>
@@ -34,7 +34,18 @@
         chartType="bubble"
         :chartData="WinByRunsChart.data"
         :chartOptions="WinByRunsChart.options"
-        :parentStyle="chartContainerStyle"
+        :parentStyle="chartContainerStyle()"
+      />
+      <div class="chart-observation">
+        <div class="observation-card">Hi</div>
+      </div>
+
+     <Chart
+        titleText="Win By Wickets for each Team"
+        chartType="bubble"
+        :chartData="WinByWicketsChart.data"
+        :chartOptions="WinByWicketsChart.options"
+        :parentStyle="chartContainerStyle(1)"
       />
       <div class="chart-observation">
         <div class="observation-card">Hi</div>
@@ -49,6 +60,7 @@ import SunburstTreeView from "../components/SunburstTreeView.vue";
 import team_json from "../../json/teamOverallData.json";
 import teamWinLose_json from "../../json/teamWinLoseCount.json";
 import winBy_json from "../../json/winTypeData.json";
+import { BUBBLE_CHART_TEAM_COLOR } from '../teamColor.constants';
 
 export default {
   name: "Team",
@@ -59,11 +71,6 @@ export default {
   },
   data() {
     return {
-      chartContainerStyle: {
-        margin: '20px',
-        width: '66vw',
-        display: 'inline-block'
-      },
       TeamRunsChart: {
         options: {
           responsive: true
@@ -116,7 +123,7 @@ export default {
           scales: {
             yAxes: [
               {
-                ticks: { max: 150 }
+                ticks: { max: 11 }
               }
             ],
             xAxes: [
@@ -139,6 +146,13 @@ export default {
         }
       }
     };
+  },
+  methods: {
+    chartContainerStyle: isLarge => ({
+      margin: '20px',
+      width: isLarge ? '94vw' : '66vw',
+      display: 'inline-block'
+    })
   },
   mounted() {
     const teamsRunDetails = [];
@@ -178,7 +192,7 @@ export default {
         {
           label: "No of Wins",
           data: teamWinLoseDetails.map(t => t.wins),
-          backgroundColor: "#A4F67E"
+          backgroundColor: "#61B96D"
         },
         {
           label: "No of Loses",
@@ -191,21 +205,7 @@ export default {
     // Team Win By Runs Chart Details
     const teamWinType = [];
     const teamName = [];
-    const COLORS = [
-      "#4dc9f6",
-      "#f67019",
-      "#f53794",
-      "#537bc4",
-      "#acc236",
-      "#166a8f",
-      "#00a950",
-      "#58595b",
-      "#8549ba",
-      "#166a8f",
-      "#00a950",
-      "#58595b",
-      "#8549ba"
-    ];
+    const COLORS = BUBBLE_CHART_TEAM_COLOR;
 
     const teamDetails = [];
 
@@ -217,7 +217,7 @@ export default {
             Number(team.teamId) +
             (Math.random() > 0.5 ? (Math.random() > 0.5 ? 0.12 : 0) : -0.12),
           y: res,
-          r: 5,
+          r: 4,
           teamId: team.teamId
         });
       });
@@ -248,15 +248,31 @@ export default {
     const teamWinByWicket = [];
     const anotherTeamDetails = [];
 
+
+    const repMap = {};
     winBy_json.forEach(team => {
       teamName.push(team.teamShortCode);
       team.winByWickets.forEach(res => {
+        const teamRep = repMap[team.teamId] || {
+          [res]: 0
+        };
+
+        if (!teamRep[res]) teamRep[res] = 0;
+        teamRep[res]++;
+        repMap[team.teamId] = teamRep;
+        let offset = Number(team.teamId);
+        for (let i = 0; i < Math.floor(teamRep[res] / 2); i++) {
+          if (teamRep[res] % 2 == 0) {
+            offset += 0.09;
+          } else {
+            offset -= 0.09;
+          }
+        }
+
         teamWinByWicket.push({
-          x:
-            Number(team.teamId) +
-            (Math.random() > 0.5 ? (Math.random() > 0.5 ? 0.12 : 0) : -0.12),
+          x: offset,
           y: res,
-          r: 5,
+          r: 4,
           teamId: team.teamId
         });
       });
@@ -277,8 +293,10 @@ export default {
         borderColor: "#58595b"
       });
     });
-  console.log(anotherDatasets)
-
+  this.WinByWicketsChart.data = {
+      ...this.WinByWicketsChart,
+      datasets: anotherDatasets
+    };
   }
 };
 </script>
