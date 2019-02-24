@@ -1,18 +1,17 @@
 <template>
   <div class="main-container">
-    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: black;">
-      <a class="navbar-brand text-white" href="/">IPL VISUALIZE</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <router-link class="nav-item nav-link" to="/">Teams</router-link>
-          <router-link class="nav-item nav-link" to="/player">Players</router-link>
-          <router-link class="nav-item nav-link" to="/venue">Venues</router-link>
-        </div>
-      </div>
-    </nav>
+    <header>
+      <p>IPL DATA VISUALIZATION</p>
+      <nav>
+      <a href="#" id="menu-icon"></a>
+        <ul>
+          <li><router-link class="nav-options current" to="/">Teams</router-link></li>
+          <li><router-link class="nav-options" to="/player">Players</router-link></li>
+          <li><router-link class="nav-options" to="/venue">Venues</router-link></li>
+          <li><router-link class="nav-options" to="/season">Seasons</router-link></li>
+        </ul>
+      </nav>
+    </header>
   </div>
 </template>
 
@@ -22,9 +21,101 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .main-container {
     padding: 0px;
   }
+  .nav-options {
+    color: rgb(156, 155, 155);
+    font-size: 18px;
+  }
+  .nav-options:hover {
+	  color: rgb(199, 197, 197);
+  }
+
+  header {
+    background: rgb(5, 5, 5);
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: inline-block
+  }
+
+  nav {
+    float: left;
+    padding: 10px;
+  }
+
+  #menu-icon {
+    display: hidden;
+    width: 40px;
+    height: 40px;
+    background: rgb(0, 0, 0) url(../assets/menu-icon.png);
+  }
+
+  a:hover#menu-icon {
+	background-color: rgb(180, 178, 178);
+	border-radius: 4px 4px 0 0;
+  }
+
+  li {
+    display: block;
+    float: left;
+    padding: 10px
+  }
+
+  .current {
+    color: rgb(221, 223, 223);
+  }
+
+  p {
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    float: left;
+    height: 40px;
+    display: block;
+  }
+
+/*MEDIA QUERY*/
+@media only screen and (max-width : 640px) {
+
+	header {
+    position: absolute;
+    width: 100%
+	}
+
+	#menu-icon {
+		display:inline-block;
+	}
+
+	nav ul, nav:active ul { 
+
+		display: none;
+		position: absolute;
+		padding: 20px;
+		background: rgb(51, 51, 51);
+		border: 5px solid #444;
+		right: 20px;
+		top: 60px;
+		width: 50%;
+		border-radius: 4px 0 4px 4px;
+
+	}
+
+	nav li {
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+	}
+
+	nav:hover ul {
+		display: block;
+	}
+}
 </style>
 
