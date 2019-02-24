@@ -148,6 +148,7 @@ export default {
 
     // Tean Run Chart
     const teamsRunDetails = [];
+    const teamColorMap = {};
 
     Object.values(team_json).forEach(team => {
       teamsRunDetails.push({
@@ -156,7 +157,11 @@ export default {
       });
     });
 
-    teamsRunDetails.sort((t1, t2) => t2.runs - t1.runs);
+    teamsRunDetails.sort((t1, t2) => {
+      return t2.runs - t1.runs
+    });
+
+    teamsRunDetails.forEach((t, i) => teamColorMap[t.shortCode] = BUBBLE_CHART_TEAM_COLOR[i]);
 
     this.TeamRunsChart.data = {
       labels: teamsRunDetails.map(t => t.shortCode),
@@ -164,7 +169,7 @@ export default {
         {
           label: "Total Runs",
           data: teamsRunDetails.map(t => t.runs),
-          backgroundColor: "#5499C7"
+          backgroundColor: Object.values(teamColorMap)
         }
       ]
     };
@@ -198,7 +203,6 @@ export default {
     // Team Win By Runs Chart Details
     const teamWinByRuns = [];
     const teamName = [];
-    const COLORS = BUBBLE_CHART_TEAM_COLOR;
 
     const teamDetails = [];
 
@@ -227,7 +231,7 @@ export default {
       datasets.push({
         label: teamName[index],
         data: teamData,
-        backgroundColor: COLORS[index],
+        backgroundColor: teamColorMap[teamName[index]],
         borderColor: "#58595b"
       });
     });
@@ -281,7 +285,7 @@ export default {
       anotherDatasets.push({
         label: teamName[index],
         data: teamData,
-        backgroundColor: COLORS[index],
+        backgroundColor: teamColorMap[teamName[index]],
         borderColor: "#58595b"
       });
     });
