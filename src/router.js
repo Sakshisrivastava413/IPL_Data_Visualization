@@ -32,4 +32,7 @@ export default new Router({
       component: Season,
     },
   ],
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
 });

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <router-view></router-view>
+    <transition name="page" mode="out-in">
+      <router-view style="margin-top: 40px"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -15,13 +17,20 @@
 </script>
 
 <style>
- #app {
-  background-color: white;
-}
+  #app {
+    background-color: white;
+  }
 
-.observation-card {
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px 2px black;
-}
+  .page-enter-active, .page-leave-active {
+    transition: opacity 0.2s;
+  }
 
+  .page-enter, .page-leave-to {
+    opacity: 0;
+  }
+
+  .observation-card {
+    border-radius: 14px;
+    box-shadow: 1px 1px 2px 2px black;
+  }
 </style>
