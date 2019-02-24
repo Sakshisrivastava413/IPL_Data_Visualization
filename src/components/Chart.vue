@@ -1,7 +1,7 @@
 <template>
-  <div class="main-container">
-    <div class="title-container">
-      <ChartTitle :title="titleText" />
+  <div class="main-container" :style="style">
+    <div class="title-container" v-if="titleText">
+      <ChartTitle :title="titleText"/>
     </div>
     <div class="bar-chart-container">
       <canvas ref="chart"></canvas>
@@ -14,16 +14,17 @@
   import ChartTitle from './ChartTitle.vue';
 
   export default {
-    name: 'BarChart',
+    name: 'Chart',
     props: [
-      'titleText', 'chartType', 'chartData', 'chartOptions'
+      'titleText', 'chartType', 'chartData', 'chartOptions', 'parentStyle'
     ],
     components: {
       ChartTitle
     },
     data() {
       return {
-        chart: null
+        chart: null,
+        style: {}
       };
     },
     mounted() {
@@ -32,26 +33,32 @@
         data: this.chartData,
         options: this.chartOptions
       });
+      this.style = this.parentStyle;
     },
     watch: {
       chartData: function() {
         this.chart.data = this.chartData;
         this.chart.options = this.chartOptions;
         this.chart.update();
+      },
+      parentStyle: function(newStyle) {
+        this.style = {
+          ...this.style,
+          ...newStyle
+        };
       }
     }
   }
 </script>
 
 <style scoped>
-
 .title-container {
-  margin-bottom: 40px
+  margin-bottom: 40px;
 }
 .main-container {
   margin-top: 30px;
 }
 .bar-chart-container {
-  margin-left: 20px
+  margin-left: 20px;
 }
 </style>

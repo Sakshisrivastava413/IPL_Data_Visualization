@@ -1,75 +1,144 @@
 <template>
   <div>
-      <Sunburst titleText="Teams Performance of all Seasons" />
-      <div class="sunburst-card-container">
-        <div class="sunburst-observation-card">
-          <div class="chart-detail">
-            <SunburstTreeView />
-          </div>
-        </div>
-      </div>
-    <div class="bar-chart-container">
-      <div class="bar-chart">
-        <BarChart
-          titleText="Runs Per Team For All Seasons"
-          chartType="bar"
-          :chartData="TeamRunsChart.data"
-          :chartOptions="TeamRunsChart.options"
-        />
-      </div>
-      <div class="chart-observation">
-        <div class="observation-card">
-          Hi
-        </div>
-      </div>
-      <div class="bar-chart">
-        <BarChart
-          titleText="No of Wins / Loses of Teams For All Seasons"
-          chartType="horizontalBar"
-          :chartData="TeamWinLoseCountChart.data"
-          :chartOptions="TeamWinLoseCountChart.options"
-        />
-      </div>
-      <div class="chart-observation">
-        <div class="observation-card">
-          Hi
+    <Sunburst titleText="Teams Performance of all Seasons"/>
+    <div class="sunburst-card-container">
+      <div class="sunburst-observation-card">
+        <div class="chart-detail">
+          <SunburstTreeView/>
         </div>
       </div>
     </div>
-  </div>
+      <Chart
+        titleText="Runs Per Team For All Seasons"
+        chartType="bar"
+        :chartData="TeamRunsChart.data"
+        :chartOptions="TeamRunsChart.options"
+        :parentStyle="chartContainerStyle"
+      />
+      <div class="chart-observation">
+        <div class="observation-card">Hi</div>
+      </div>
+      <Chart
+        titleText="No of Wins / Loses of Teams For All Seasons"
+        chartType="horizontalBar"
+        :chartData="TeamWinLoseCountChart.data"
+        :chartOptions="TeamWinLoseCountChart.options"
+        :parentStyle="chartContainerStyle"
+      />
+      <div class="chart-observation">
+        <div class="observation-card">Hi</div>
+      </div>
+
+      <Chart
+        titleText="Win By Runs for each Team"
+        chartType="bubble"
+        :chartData="WinByRunsChart.data"
+        :chartOptions="WinByRunsChart.options"
+        :parentStyle="chartContainerStyle"
+      />
+      <div class="chart-observation">
+        <div class="observation-card">Hi</div>
+      </div>
+    </div>
 </template>
 
 <script>
-import Sunburst from '../components/Sunburst.vue';
-import BarChart from '../components/BarChart.vue';
-import SunburstTreeView from '../components/SunburstTreeView.vue';
-import team_json from '../../json/teamOverallData.json';
-import teamWinLose_json from '../../json/teamWinLoseCount.json';
+import Sunburst from "../components/Sunburst.vue";
+import Chart from "../components/Chart.vue";
+import SunburstTreeView from "../components/SunburstTreeView.vue";
+import team_json from "../../json/teamOverallData.json";
+import teamWinLose_json from "../../json/teamWinLoseCount.json";
+import winBy_json from "../../json/winTypeData.json";
 
 export default {
-  name: 'Team',
+  name: "Team",
   components: {
     Sunburst,
-    BarChart,
+    Chart,
     SunburstTreeView
   },
   data() {
     return {
+      chartContainerStyle: {
+        margin: '20px',
+        width: '66vw',
+        display: 'inline-block'
+      },
       TeamRunsChart: {
-        options: {},
+        options: {
+          responsive: true
+        },
         data: {
           labels: [],
           datasets: []
         }
       },
       TeamWinLoseCountChart: {
-        options: {},
+        options: {
+          responsive: true
+        },
+        data: {
+          labels: [],
+          datasets: []
+        }
+      },
+      WinByRunsChart: {
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                ticks: { max: 150 }
+              }
+            ],
+            xAxes: [
+              {
+                display: false
+              }
+            ]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItems) {
+                return tooltipItems.yLabel + " Runs";
+              }
+            }
+          }
+        },
+        data: {
+          labels: [],
+          datasets: []
+        }
+      },
+      WinByWicketsChart: {
+        options: {
+          responsive: true,
+          scales: {
+            yAxes: [
+              {
+                ticks: { max: 150 }
+              }
+            ],
+            xAxes: [
+              {
+                display: false
+              }
+            ]
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItems) {
+                return tooltipItems.yLabel + " Wickets";
+              }
+            }
+          }
+        },
         data: {
           labels: [],
           datasets: []
         }
       }
-    }
+    };
   },
   mounted() {
     const teamsRunDetails = [];
@@ -85,62 +154,140 @@ export default {
 
     this.TeamRunsChart.data = {
       labels: teamsRunDetails.map(t => t.shortCode),
-      datasets: [{
-        label: 'Total Runs',
-         data: teamsRunDetails.map(t => t.runs),
-         backgroundColor: '#5499C7'
-      }
+      datasets: [
+        {
+          label: "Total Runs",
+          data: teamsRunDetails.map(t => t.runs),
+          backgroundColor: "#5499C7"
+        }
       ]
     };
-    this.TeamRunsChart.options = {
-      responsive: true,
-      scales: {
-        xAxes: [{
-          ticks: {
-          beginAtZero: true,
-          maxRotation: 0,
-          minRotation: 0
-          }
-        }],
-        yAxes: [{}],
-      },
-    }
 
+    // team Win Lose Chart Details
     const teamWinLoseDetails = [];
-
-     Object.values(teamWinLose_json).forEach(team_detail => {
+    Object.values(teamWinLose_json).forEach(team_detail => {
       teamWinLoseDetails.push({
         shortCode: team_detail.details.Team_Short_Code,
         wins: team_detail.wins,
         loses: team_detail.loses
-      })
+      });
     });
     this.TeamWinLoseCountChart.data = {
       labels: teamWinLoseDetails.map(t => t.shortCode),
       datasets: [
         {
-          label: 'No of Wins',
+          label: "No of Wins",
           data: teamWinLoseDetails.map(t => t.wins),
-          backgroundColor: '#A4F67E'
+          backgroundColor: "#A4F67E"
         },
         {
-          label: 'No of Loses',
+          label: "No of Loses",
           data: teamWinLoseDetails.map(t => t.loses),
-          backgroundColor: '#F18F8C'
-        },
+          backgroundColor: "#F18F8C"
+        }
       ]
     };
-    this.TeamWinLoseCountChart.options = {
-      responsive: true
-    }
+
+    // Team Win By Runs Chart Details
+    const teamWinType = [];
+    const teamName = [];
+    const COLORS = [
+      "#4dc9f6",
+      "#f67019",
+      "#f53794",
+      "#537bc4",
+      "#acc236",
+      "#166a8f",
+      "#00a950",
+      "#58595b",
+      "#8549ba",
+      "#166a8f",
+      "#00a950",
+      "#58595b",
+      "#8549ba"
+    ];
+
+    const teamDetails = [];
+
+    winBy_json.forEach(team => {
+      teamName.push(team.teamShortCode);
+      team.winByRuns.forEach(res => {
+        teamWinType.push({
+          x:
+            Number(team.teamId) +
+            (Math.random() > 0.5 ? (Math.random() > 0.5 ? 0.12 : 0) : -0.12),
+          y: res,
+          r: 5,
+          teamId: team.teamId
+        });
+      });
+    });
+
+    teamWinType.forEach(team => {
+      teamDetails[Number(team.teamId) - 1] =
+        teamDetails[Number(team.teamId) - 1] || [];
+      teamDetails[Number(team.teamId) - 1].push(team);
+    });
+
+    const datasets = [];
+    teamDetails.forEach((teamData, index) => {
+      datasets.push({
+        label: teamName[index],
+        data: teamData,
+        backgroundColor: COLORS[index],
+        borderColor: "#58595b"
+      });
+    });
+
+    this.WinByRunsChart.data = {
+      ...this.WinByRunsChart,
+      datasets
+    };
+
+    // Win By Wicket Chart
+    const teamWinByWicket = [];
+    const anotherTeamDetails = [];
+
+    winBy_json.forEach(team => {
+      teamName.push(team.teamShortCode);
+      team.winByWickets.forEach(res => {
+        teamWinByWicket.push({
+          x:
+            Number(team.teamId) +
+            (Math.random() > 0.5 ? (Math.random() > 0.5 ? 0.12 : 0) : -0.12),
+          y: res,
+          r: 5,
+          teamId: team.teamId
+        });
+      });
+    });
+
+    teamWinByWicket.forEach(team => {
+      anotherTeamDetails[Number(team.teamId) - 1] =
+        anotherTeamDetails[Number(team.teamId) - 1] || [];
+      anotherTeamDetails[Number(team.teamId) - 1].push(team);
+    });
+
+    const anotherDatasets = [];
+    anotherTeamDetails.forEach((teamData, index) => {
+      anotherDatasets.push({
+        label: teamName[index],
+        data: teamData,
+        backgroundColor: COLORS[index],
+        borderColor: "#58595b"
+      });
+    });
+  console.log(anotherDatasets)
+
   }
-}
+};
 </script>
 
 <style scoped>
-.bar-chart {
+
+.bubble-chart {
   margin: 20px;
-  width: 60vw;
+  width: 72vw;
   display: inline-block;
 }
 .chart-observation {
@@ -171,6 +318,6 @@ export default {
 
 .chart-detail {
   width: 100%;
-padding-top: 20px;
+  padding-top: 20px;
 }
 </style>

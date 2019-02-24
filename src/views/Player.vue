@@ -1,13 +1,12 @@
 <template>
   <div class="main">
-    <div class="chart-container">
-      <BarChart
-        titleText="Top 10 Batsmen"
-        chartType="bar"
-        :chartData="TopBatsmanData.data"
-        :chartOptions="TopBatsmanData.options"
-      />
-    </div>
+    <Chart
+      titleText="Top 10 Batsmen"
+      chartType="bar"
+      :chartData="TopBatsmanData.data"
+      :chartOptions="TopBatsmanData.options"
+      :parentStyle="chartContainerStyle"
+    />
     <div class="card-container" v-if="focusedBatman">
       <div class="card-body">
         <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
@@ -21,22 +20,21 @@
         </p>
       </div>
     </div>
-    <div class="card-container" style="width: 18rem;" v-else>
-      <div class="card-body">
+    <div v-else class="chart-observation">
+      <div class="observation-card">
         <p class="not-selected">
           Click any player bar to show more.
         </p>
       </div>
     </div>
 
-    <div class="chart-container">
-      <BarChart
-        titleText="Highest Man Of the Matches Winners"
-        chartType="bar"
-        :chartData="TopManOfTheMatchData.data"
-        :chartOptions="TopManOfTheMatchData.options"
-      />
-    </div>
+    <Chart
+      titleText="Highest Man Of the Matches Winners"
+      chartType="bar"
+      :chartData="TopManOfTheMatchData.data"
+      :chartOptions="TopManOfTheMatchData.options"
+      :parentStyle="chartContainerStyle"
+    />
     <div class="card-container" v-if="focusedBatman">
       <div class="card-body">
         <h5 class="card-title">{{focusedBatman.details.Player_Name}}</h5>
@@ -54,17 +52,22 @@
 </template>
 
 <script>
-import BarChart from '../components/BarChart.vue';
+import Chart from '../components/Chart.vue';
 import batsman_json from '../../json/top10Batsmen.json';
 import manOfTheMatch_json from '../../json/topManOfTheMatch.json';
 import match_json from '../../json/matchData.json';
 export default {
   name: 'Player',
   components: {
-    BarChart
+    Chart
   },
   data() {
     return {
+      chartContainerStyle: {
+        margin: '20px',
+        width: '66vw',
+        display: 'inline-block'
+      },
       TopBatsmanData: {
         options: {},
         data: {
@@ -112,7 +115,9 @@ export default {
         }],
       },
       onClick: (evt, item) => {
-        this.focusedBatman = batsman_json[item[0]._index]
+        if (item && item[0] && item[0]._index) {
+          this.focusedBatman = batsman_json[item[0]._index];
+        }
       }
     }
 
@@ -160,24 +165,29 @@ export default {
     color: gray;
     font-size: 20px;
   }
-  .chart-container {
-  margin: 20px;
-  margin-top: 0px;
-  width: 60%;
-  display: inline-block;
-  }
   .card-container {
     display: inline-block;
     position: absolute;
     margin: 18px;
   }
+.chart-observation {
+  margin: 18px;
+  margin-top: 12%;
+  position: absolute;
+  display: inline-block;
+}
+.observation-card {
+  width: 30vw;
+  height: 30vh;
+}
+
 </style>
 <style>
-.card-container > div {
-  width: 31vw;
-  height: 30vh;
-  margin-top: 17vh;
-  border-radius: 14px;
-  box-shadow: 1px 1px 2px 2px black;
-}
+  .card-container > div {
+    width: 31vw;
+    height: 30vh;
+    margin-top: 17vh;
+    border-radius: 14px;
+    box-shadow: 1px 1px 2px 2px black;
+  }
 </style>
