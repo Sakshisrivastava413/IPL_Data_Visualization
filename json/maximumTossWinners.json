@@ -1,0 +1,67 @@
+{
+  "1": {
+    "wins": 69,
+    "tn": "Kolkata Knight Riders",
+    "tsc": "KKR"
+  },
+  "2": {
+    "wins": 61,
+    "tn": "Royal Challengers Bangalore",
+    "tsc": "RCB"
+  },
+  "3": {
+    "wins": 66,
+    "tn": "Chennai Super Kings",
+    "tsc": "CSK"
+  },
+  "4": {
+    "wins": 64,
+    "tn": "Kings XI Punjab",
+    "tsc": "KXIP"
+  },
+  "5": {
+    "wins": 63,
+    "tn": "Rajasthan Royals",
+    "tsc": "RR"
+  },
+  "6": {
+    "wins": 64,
+    "tn": "Delhi Daredevils",
+    "tsc": "DD"
+  },
+  "7": {
+    "wins": 74,
+    "tn": "Mumbai Indians",
+    "tsc": "MI"
+  },
+  "8": {
+    "wins": 43,
+    "tn": "Deccan Chargers",
+    "tsc": "DC"
+  },
+  "9": {
+    "wins": 8,
+    "tn": "Kochi Tuskers Kerala",
+    "tsc": "KTK"
+  },
+  "10": {
+    "wins": 20,
+    "tn": "Pune Warriors",
+    "tsc": "PW"
+  },
+  "11": {
+    "wins": 30,
+    "tn": "Sunrisers Hyderabad",
+    "tsc": "SRH"
+  },
+  "12": {
+    "wins": 7,
+    "tn": "Rising Pune Supergiants",
+    "tsc": "RPS"
+  },
+  "13": {
+    "wins": 8,
+    "tn": "Gujarat Lions",
+    "tsc": "GL"
+  }
+}

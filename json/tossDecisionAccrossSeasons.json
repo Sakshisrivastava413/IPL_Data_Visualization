@@ -1,0 +1,38 @@
+{
+  "1": {
+    "batDecisions": 26,
+    "ballDecisions": 32
+  },
+  "2": {
+    "batDecisions": 35,
+    "ballDecisions": 22
+  },
+  "3": {
+    "batDecisions": 39,
+    "ballDecisions": 21
+  },
+  "4": {
+    "batDecisions": 25,
+    "ballDecisions": 48
+  },
+  "5": {
+    "batDecisions": 37,
+    "ballDecisions": 37
+  },
+  "6": {
+    "batDecisions": 45,
+    "ballDecisions": 31
+  },
+  "7": {
+    "batDecisions": 19,
+    "ballDecisions": 41
+  },
+  "8": {
+    "batDecisions": 25,
+    "ballDecisions": 34
+  },
+  "9": {
+    "batDecisions": 11,
+    "ballDecisions": 49
+  }
+}
