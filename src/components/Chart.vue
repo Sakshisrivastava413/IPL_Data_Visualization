@@ -24,7 +24,7 @@
     data() {
       return {
         chart: null,
-        style: {}
+        style: this.parentStyle
       };
     },
     mounted() {
@@ -33,7 +33,6 @@
         data: this.chartData,
         options: this.chartOptions
       });
-      this.style = this.parentStyle;
     },
     watch: {
       chartData: function() {
@@ -52,13 +51,13 @@
 </script>
 
 <style scoped>
-.title-container {
-  margin-bottom: 40px;
-}
-.main-container {
-  margin-top: 30px;
-}
-.bar-chart-container {
-  margin-left: 20px;
-}
+  .title-container {
+    margin-bottom: 40px;
+  }
+  .main-container {
+    margin-top: 30px;
+  }
+  .bar-chart-container {
+    margin-left: 20px;
+  }
 </style>
