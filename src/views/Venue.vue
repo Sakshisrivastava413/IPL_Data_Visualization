@@ -1,7 +1,7 @@
 <template>
-<div class="main">
+  <div class="main">
     <div class="chart-container">
-      <BarChart
+      <Chart
         titleText="Top Venues"
         chartType="horizontalBar"
         :chartData="TopVenuesChart.data"
@@ -12,17 +12,23 @@
         <p>Clearly, the highest number of matches have been played at Mumbai, followed by Bangalore, Kolkata and Delhi in order.</p>
       </div>
     </div>
+    <div class="venue-map-container">
+      <VenuesMap />
+    </div>
   </div>
- 
+
 </template>
 
 <script>
-import BarChart from '../components/BarChart.vue';
+import Chart from '../components/Chart.vue';
+import VenuesMap from '../components/VenuesMap.vue';
 import venue_json from '../../json/top10Venue.json';
+
 export default {
   name: 'Venue',
   components: {
-    BarChart
+    Chart,
+    VenuesMap,
   },
   data() {
     return {
@@ -95,7 +101,6 @@ export default {
 
 .chart-container {
   margin: 20px;
-  margin-top: 0px;
   width: 70%;
   display: inline-block;
   }
@@ -104,6 +109,9 @@ export default {
   margin-top: 10%;
   position: absolute;
   display: inline-block;
+}
+.venue-map-container {
+ margin-top: 50px;
 }
 </style>
 <style>
