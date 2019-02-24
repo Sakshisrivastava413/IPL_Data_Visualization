@@ -17,7 +17,6 @@ export default {
     margin-left: 50px;
     margin-top: 30px;
     color: black;
-    /* color: #555555; */
   }
 </style>
 

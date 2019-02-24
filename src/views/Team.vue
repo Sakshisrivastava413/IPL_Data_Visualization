@@ -58,6 +58,7 @@ import Sunburst from "../components/Sunburst.vue";
 import Chart from "../components/Chart.vue";
 import SunburstTreeView from "../components/SunburstTreeView.vue";
 import team_json from "../../json/teamOverallData.json";
+import teamData from '../../json/teamData.json'
 import teamWinLose_json from "../../json/teamWinLoseCount.json";
 import winBy_json from "../../json/winTypeData.json";
 import { BUBBLE_CHART_TEAM_COLOR } from '../teamColor.constants';
@@ -71,9 +72,19 @@ export default {
   },
   data() {
     return {
+      teamWinLoseDetails: [],
       TeamRunsChart: {
         options: {
-          responsive: true
+          responsive: true,
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItems) {
+                const team = teamData.find(t => t.Team_Short_Code == tooltipItems.xLabel);
+                return `${team.Team_Name}
+                 ${tooltipItems.yLabel} Runs`;
+              }
+            }
+          }
         },
         data: {
           labels: [],
@@ -82,7 +93,7 @@ export default {
       },
       TeamWinLoseCountChart: {
         options: {
-          responsive: true
+          responsive: true,
         },
         data: {
           labels: [],
@@ -155,6 +166,8 @@ export default {
     })
   },
   mounted() {
+
+    // Tean Run Chart
     const teamsRunDetails = [];
 
     Object.values(team_json).forEach(team => {
@@ -165,6 +178,8 @@ export default {
     });
 
     teamsRunDetails.sort((t1, t2) => t2.runs - t1.runs);
+
+    console.log(team_json)
 
     this.TeamRunsChart.data = {
       labels: teamsRunDetails.map(t => t.shortCode),
@@ -201,9 +216,10 @@ export default {
         }
       ]
     };
+    this.teamWinLoseDetails = teamWinLoseDetails;
 
     // Team Win By Runs Chart Details
-    const teamWinType = [];
+    const teamWinByRuns = [];
     const teamName = [];
     const COLORS = BUBBLE_CHART_TEAM_COLOR;
 
@@ -212,7 +228,7 @@ export default {
     winBy_json.forEach(team => {
       teamName.push(team.teamShortCode);
       team.winByRuns.forEach(res => {
-        teamWinType.push({
+        teamWinByRuns.push({
           x:
             Number(team.teamId) +
             (Math.random() > 0.5 ? (Math.random() > 0.5 ? 0.12 : 0) : -0.12),
@@ -223,7 +239,7 @@ export default {
       });
     });
 
-    teamWinType.forEach(team => {
+    teamWinByRuns.forEach(team => {
       teamDetails[Number(team.teamId) - 1] =
         teamDetails[Number(team.teamId) - 1] || [];
       teamDetails[Number(team.teamId) - 1].push(team);
@@ -231,6 +247,7 @@ export default {
 
     const datasets = [];
     teamDetails.forEach((teamData, index) => {
+      console.log(teamName)
       datasets.push({
         label: teamName[index],
         data: teamData,
@@ -251,7 +268,6 @@ export default {
 
     const repMap = {};
     winBy_json.forEach(team => {
-      teamName.push(team.teamShortCode);
       team.winByWickets.forEach(res => {
         const teamRep = repMap[team.teamId] || {
           [res]: 0

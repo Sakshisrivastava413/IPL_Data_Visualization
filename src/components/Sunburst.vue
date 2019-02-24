@@ -32,9 +32,14 @@ export default {
           let size = 0;
           if (!data.children || !data.children.length)
             return `${data.label} ${data.value}`;
-          if (data.label == "Batsmans hits" || data.label == "Extra Runs") {
+          if (
+            data.label == "Extra Runs" ||
+            data.label == "Boundaries" ||
+            data.label == "Non Boundaries"
+          ) {
             size = data.children.reduce((acc, d) => acc + d.size, 0);
           }
+
           return `${data.label} ${size != 0 ? size : ""}`;
         });
         chart.color(function (d) {
@@ -55,19 +60,51 @@ export default {
             color: "#28B463",                
             children: [
               {
-                label: "Batsmans hits",
+                label: "Batsmen hits",
                 color: '#E74C3C',
                 children: [
                   {
-                    label: "Fours",
-                    color: "#17A589",
-                    size: team.batting.fours
+                    label: "Boundaries",
+                    color: '#E74C3C',
+                    children: [
+                      {
+                        label: "Fours",
+                        color: "#17A589",
+                        size: team.batting.fours
+                      },
+                      {
+                        label: "Sixes",
+                        color: "#85929E",
+                        size: team.batting.sixes
+                      }
+                    ]
                   },
                   {
-                    label: "Sixes",
-                    color: "#85929E",
-                    size: team.batting.sixes
-                  }
+                    label: "Non Boundaries",
+                    color: 'pink',
+                    children: [
+                      {
+                        label: "Ones",
+                        color: "#17A589",
+                        size: team.batting.ones
+                      },
+                      {
+                        label: "Twos",
+                        color: "red",
+                        size: team.batting.twos
+                      },
+                      {
+                        label: "Threes",
+                        color: "green",
+                        size: team.batting.threes
+                      },
+                      {
+                        label: "Fives",
+                        color: "black",
+                        size: team.batting.fives
+                      }
+                    ]
+                  },
                 ]
               },
               {
@@ -103,23 +140,55 @@ export default {
             color: '#5A80FF',
             children: [
               {
-                label: "Runs Conceded to Batsmans hits",
+                label: "Runs Conceded via Batsmen hits",
                 color: "#F4D03F",
                 children: [
                   {
-                    label: "Fours",
-                    color: "#C0392B",
-                    size: team.bowling.fours
+                    label: "Boundaries",
+                    color: '#E74C3C',
+                    children: [
+                      {
+                        label: "Fours",
+                        color: "#17A589",
+                        size: team.bowling.fours
+                      },
+                      {
+                        label: "Sixes",
+                        color: "#85929E",
+                        size: team.bowling.sixes
+                      }
+                    ]
                   },
                   {
-                    label: "Sixes",
-                    color: "#884EA0",
-                    size: team.bowling.sixes
-                  }
+                    label: "Non Boundaries",
+                    color: 'pink',
+                    children: [
+                      {
+                        label: "Ones",
+                        color: "#17A589",
+                        size: team.bowling.ones
+                      },
+                      {
+                        label: "Twos",
+                        color: "red",
+                        size: team.bowling.twos
+                      },
+                      {
+                        label: "Threes",
+                        color: "green",
+                        size: team.bowling.threes
+                      },
+                      {
+                        label: "Fives",
+                        color: "black",
+                        size: team.bowling.fives
+                      }
+                    ]
+                  },
                 ]
               },
               {
-                label: "Runs Conceded Extra Runs",
+                label: "Extra Runs Conceded",
                 color: "#229954",
                 children: [
                   {
