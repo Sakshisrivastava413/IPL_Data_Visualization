@@ -8,59 +8,61 @@
         </div>
       </div>
     </div>
-      <Chart
-        titleText="Runs Per Team For All Seasons"
-        chartType="bar"
-        :chartData="TeamRunsChart.data"
-        :chartOptions="TeamRunsChart.options"
-        :parentStyle="chartContainerStyle()"
-      />
-      <div class="chart-observation">
-        <div class="observation-card">Hi</div>
-      </div>
-      <Chart
-        titleText="No of Wins / Loses of Teams For All Seasons"
-        chartType="horizontalBar"
-        :chartData="TeamWinLoseCountChart.data"
-        :chartOptions="TeamWinLoseCountChart.options"
-        :parentStyle="chartContainerStyle()"
-      />
-      <div class="chart-observation">
-        <div class="observation-card">Hi</div>
-      </div>
-
-      <Chart
-        titleText="Win By Runs for each Team"
-        chartType="bubble"
-        :chartData="WinByRunsChart.data"
-        :chartOptions="WinByRunsChart.options"
-        :parentStyle="chartContainerStyle()"
-      />
-      <div class="chart-observation">
-        <div class="observation-card">Hi</div>
-      </div>
-
-     <Chart
-        titleText="Win By Wickets for each Team"
-        chartType="bubble"
-        :chartData="WinByWicketsChart.data"
-        :chartOptions="WinByWicketsChart.options"
-        :parentStyle="chartContainerStyle(1)"
-      />
-      <div class="chart-observation">
-        <div class="observation-card">Hi</div>
-      </div>
+    <Chart
+      titleText="Runs Per Team For All Seasons"
+      chartType="bar"
+      :chartData="TeamRunsChart.data"
+      :chartOptions="TeamRunsChart.options"
+      :parentStyle="chartContainerStyle()"
+    />
+    <div class="chart-observation">
+      <div class="observation-card">Hi</div>
     </div>
+    <Chart
+      titleText="No of Wins / Loses of Teams For All Seasons"
+      chartType="horizontalBar"
+      :chartData="TeamWinLoseCountChart.data"
+      :chartOptions="TeamWinLoseCountChart.options"
+      :parentStyle="chartContainerStyle()"
+    />
+    <div class="chart-observation">
+      <div class="observation-card">Hi</div>
+    </div>
+
+    <Chart
+      titleText="Win By Runs for each Team"
+      chartType="bubble"
+      :chartData="WinByRunsChart.data"
+      :chartOptions="WinByRunsChart.options"
+      :parentStyle="chartContainerStyle()"
+    />
+    <div class="chart-observation">
+      <div class="observation-card">Hi</div>
+    </div>
+
+    <Chart
+      titleText="Win By Wickets for each Team"
+      chartType="bubble"
+      :chartData="WinByWicketsChart.data"
+      :chartOptions="WinByWicketsChart.options"
+      :parentStyle="chartContainerStyle(1)"
+    />
+    <div class="chart-observation">
+      <div class="observation-card">Hi</div>
+    </div>
+  </div>
 </template>
 
 <script>
+import SunburstTreeView from "../components/SunburstTreeView.vue";
 import Sunburst from "../components/Sunburst.vue";
 import Chart from "../components/Chart.vue";
-import SunburstTreeView from "../components/SunburstTreeView.vue";
+
 import team_json from "../../json/teamOverallData.json";
 import teamData from '../../json/teamData.json'
-import teamWinLose_json from "../../json/teamWinLoseCount.json";
 import winBy_json from "../../json/winTypeData.json";
+import teamWinLose_json from "../../json/teamWinLoseCount.json";
+
 import { BUBBLE_CHART_TEAM_COLOR } from '../teamColor.constants';
 
 export default {
@@ -104,16 +106,8 @@ export default {
         options: {
           responsive: true,
           scales: {
-            yAxes: [
-              {
-                ticks: { max: 150 }
-              }
-            ],
-            xAxes: [
-              {
-                display: false
-              }
-            ]
+            yAxes: [{ ticks: { max: 150 } }],
+            xAxes: [{ display: false }]
           },
           tooltips: {
             callbacks: {
@@ -132,16 +126,8 @@ export default {
         options: {
           responsive: true,
           scales: {
-            yAxes: [
-              {
-                ticks: { max: 11 }
-              }
-            ],
-            xAxes: [
-              {
-                display: false
-              }
-            ]
+            yAxes: [{ ticks: { max: 11 } }],
+            xAxes: [{ display: false }]
           },
           tooltips: {
             callbacks: {
@@ -158,13 +144,6 @@ export default {
       }
     };
   },
-  methods: {
-    chartContainerStyle: isLarge => ({
-      margin: '20px',
-      width: isLarge ? '94vw' : '66vw',
-      display: 'inline-block'
-    })
-  },
   mounted() {
 
     // Tean Run Chart
@@ -178,8 +157,6 @@ export default {
     });
 
     teamsRunDetails.sort((t1, t2) => t2.runs - t1.runs);
-
-    console.log(team_json)
 
     this.TeamRunsChart.data = {
       labels: teamsRunDetails.map(t => t.shortCode),
@@ -247,7 +224,6 @@ export default {
 
     const datasets = [];
     teamDetails.forEach((teamData, index) => {
-      console.log(teamName)
       datasets.push({
         label: teamName[index],
         data: teamData,
@@ -309,11 +285,18 @@ export default {
         borderColor: "#58595b"
       });
     });
-  this.WinByWicketsChart.data = {
+    this.WinByWicketsChart.data = {
       ...this.WinByWicketsChart,
       datasets: anotherDatasets
     };
-  }
+  },
+  methods: {
+    chartContainerStyle: isLarge => ({
+      margin: '20px',
+      width: isLarge ? '94vw' : '66vw',
+      display: 'inline-block'
+    })
+  },
 };
 </script>
 

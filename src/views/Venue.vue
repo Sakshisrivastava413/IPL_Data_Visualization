@@ -1,11 +1,12 @@
 <template>
-  <div class="main">
+  <div class="main-container">
     <div class="chart-container">
       <Chart
         titleText="Top Venues"
         chartType="horizontalBar"
         :chartData="TopVenuesChart.data"
-        :chartOptions="TopVenuesChart.options" />
+        :chartOptions="TopVenuesChart.options"
+      />
     </div>
     <div class="chart-observation">
       <div class="observation-card">
@@ -16,13 +17,14 @@
       <VenuesMap />
     </div>
   </div>
-
 </template>
 
 <script>
 import Chart from '../components/Chart.vue';
 import VenuesMap from '../components/VenuesMap.vue';
+
 import venue_json from '../../json/top10Venue.json';
+
 import { VENUE_COLOR } from '../teamColor.constants';
 
 export default {
@@ -39,11 +41,7 @@ export default {
           responsive: true,
           scales: {
             xAxes: [{
-              ticks: {
-              beginAtZero: true
-              }
-            }],
-            yAxes: [{
+              ticks: { beginAtZero: true }
             }],
           },
           tooltips: {
@@ -86,25 +84,24 @@ export default {
 </script>
 
 <style scoped>
-
-.chart-container {
-  margin: 20px;
-  width: 70%;
-  display: inline-block;
+  .chart-container {
+    margin: 20px;
+    width: 70%;
+    display: inline-block;
   }
   .chart-observation {
-  margin: 18px;
-  margin-top: 10%;
-  position: absolute;
-  display: inline-block;
-}
-.venue-map-container {
- margin-top: 50px;
-}
+    margin: 18px;
+    margin-top: 10%;
+    position: absolute;
+    display: inline-block;
+  }
+  .venue-map-container {
+    margin-top: 50px;
+  }
 </style>
 <style>
-.observation-card {
-  width: 21vw;
-  height: 30vh;
-}
+  .observation-card {
+    width: 21vw;
+    height: 30vh;
+  }
 </style>
