@@ -64,38 +64,37 @@ export default {
   },
   mounted() {
     // Tean Run Chart
-    const TossDecisionDetails = [];
+    const tossDecisionDetails = [];
 
     Object.values(tossDecision_json).forEach(season => {
-      TossDecisionDetails.push({
+      tossDecisionDetails.push({
         bat: season.batDecisions,
-        ball: season.ballDecisions
+        ball: season.ballDecisions,
       });
     });
-      console.log(TossDecisionDetails)
 
     this.TossDecisionChart.data = {
-      labels: [],
+      labels: tossDecisionDetails.map((_, i) => i + 2008),
       datasets: [
         {
           label: "Batting",
-          data: TossDecisionDetails.map(t => t.bat),
-          backgroundColor: "#61B16D"
+          data: tossDecisionDetails.map(t => t.bat),
+          backgroundColor: "#86E7FF"
         },
         {
           label: "Bowling",
-          data: TossDecisionDetails.map(t => t.ball),
-          backgroundColor: "#D12F1C"
+          data: tossDecisionDetails.map(t => t.ball),
+          backgroundColor: "#B4EB79"
         }
       ]
     };
 
     this.TotalMatchesPlayedChart.data = {
-      labels: [],
+      labels: tossDecisionDetails.map((_, i) => i + 2008),
       datasets: [
         {
-          label: "total matches",
-          data: totalMatches_json.map(t => t),
+          label: "Total matches",
+          data: totalMatches_json,
           backgroundColor: "#61B16D"
         }
       ]
