@@ -1,8 +1,8 @@
 <template>
-  <div class="card-container">
+  <div class="observation-card">
     <div class="card-body" v-if="player">
-      <h5 class="card-title">{{player.details.Player_Name}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{player.teamDetails.Team_Name}}</h6>
+      <span class="card-heading">{{player.details.Player_Name}}</span>
+      <h4 class="not-selected" style="font-weight: 300">{{player.teamDetails.Team_Name}}</h4>
       <p class="card-text">
         Total Runs Scored: <span class="text-value">{{player.totalRuns}}</span>
         <br />
@@ -44,6 +44,11 @@ export default {
 </script>
 
 <style scoped>
+  .card-heading {
+    font-size: 24px;
+    font-weight: 500;
+    text-decoration: none;
+  }
   .card-text {
     color: rgb(58, 180, 156)
   }
@@ -58,6 +63,15 @@ export default {
     display: inline-block;
     position: absolute;
     margin: 18px;
+  }
+  .observation-card {
+    width: 24%;
+    display: inline-block;
+    position: absolute;
+    margin: 12px;
+    margin-top: 10%;
+    padding: 12px;
+    height: 30vh;
   }
 </style>
 <style>

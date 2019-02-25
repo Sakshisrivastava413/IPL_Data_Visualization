@@ -323,7 +323,7 @@ export default {
 #card-container > div {
   background: white;
   padding: 20px;
-  width: 34vw;
+  width: 32vw;
   height: 90vh;
   border-radius: 14px;
   box-shadow: 1px 1px 4px 2px black;

@@ -339,9 +339,10 @@ export default {
 
 .tog-btn {
   border-radius: 4px;
-  background: rgba(0,0,0, 0.5);
+  background: rgba(0,0,0, 0.7);
   color: white;
   outline: none;
+  font-size: 18px;
 }
 
 .bubble-chart {

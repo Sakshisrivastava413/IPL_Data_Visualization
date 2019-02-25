@@ -19,6 +19,7 @@
         <i><b>Eden Gardens</b> and <b>Wankhede Stadium</b> has been the most unpredictable and unbiased stadiums towards the team winning toss.</i>
       </p>
     </div>
+    <ChartTitle title="Advanced Venue View" subTitle="(hover/click on cities/countries/venues to view more details)" />
     <div class="venue-map-container">
       <VenuesMap :focusVenue="focusVenue" />
     </div>
@@ -27,6 +28,7 @@
 
 <script>
 import Chart from '../components/Chart.vue';
+import ChartTitle from '../components/ChartTitle.vue';
 import VenuesMap from '../components/VenuesMap.vue';
 import VenueDetailCard from '../components/VenueDetailCard.vue';
 
@@ -40,6 +42,7 @@ export default {
   components: {
     Chart,
     VenuesMap,
+    ChartTitle,
     VenueDetailCard,
   },
   data() {

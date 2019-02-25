@@ -21,6 +21,10 @@
     background-color: white;
   }
 
+  * {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
   .page-enter-active, .page-leave-active {
     transition: opacity 0.2s;
   }

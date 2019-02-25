@@ -69,7 +69,6 @@ export default {
 
   nav {
     float: left;
-    padding: 10px;
   }
 
   #menu-icon {

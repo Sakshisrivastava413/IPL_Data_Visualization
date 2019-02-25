@@ -33,7 +33,7 @@
       :parentStyle="chartContainerStyle(1)"
     >
       <div class="team-select-container">
-        <h4 style="display: inline-block">Select a team</h4>&nbsp;
+        <h4 style="display: inline-block; font-weight: 300">Select a team</h4>&nbsp;
         <select  style="display: inline-block" @change="teamChange">
           <option v-for="code in teamCodes" :key="code" :value="code">{{code}}</option>
         </select>
@@ -202,5 +202,14 @@ export default {
 <style scoped>
   .team-select-container {
     margin-left: 10%;
+  }
+  select {
+      width: 150px;
+      margin: 10px;
+      font-size: 16px;
+  }
+  select:focus {
+      min-width: 150px;
+      width: auto;
   }
 </style>
