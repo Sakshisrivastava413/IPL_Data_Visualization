@@ -4,7 +4,7 @@ import router from './router';
 import './registerServiceWorker';
 import * as VueGoogleMaps from 'vue2-google-maps'
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 
 if (!process.env.VUE_APP_GMAPS_API_KEY) {
   alert("Whoops! You forgot to add `VUE_APP_GMAPS_API_KEY` variable in your env file, check console for more details!");
