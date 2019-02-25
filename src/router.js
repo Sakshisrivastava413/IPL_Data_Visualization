@@ -1,9 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Team from './views/Team.vue';
-import Player from './views/Player.vue';
-import Venue from './views/Venue.vue';
-import Season from './views/Season.vue';
 
 Vue.use(Router);
 
@@ -14,22 +10,22 @@ export default new Router({
     {
       path: '/',
       name: 'Team',
-      component: Team,
+      component: () => import('./views/Team.vue'),
     },
     {
       path: '/player',
       name: 'Player',
-      component: Player,
+      component: () => import('./views/Player.vue'),
     },
     {
       path: '/venue',
       name: 'Venue',
-      component: Venue,
+      component: () => import('./views/Venue.vue'),
     },
     {
       path: '/season',
       name: 'Season',
-      component: Season,
+      component: () => import('./views/Season.vue'),
     },
   ],
   scrollBehavior() {
